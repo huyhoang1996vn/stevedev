@@ -5,12 +5,12 @@ print ('>>>>>>>>> DEPLOY IN LOCAL')
 
 DATABASES = {
     'default': {
-        'NAME': 'helio2',
+        'NAME': 'django3',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'huyhoang@123',
         'HOST': 'localhost',
-        'PORT': 5433
+        'PORT': 5432
     }
 }
 
