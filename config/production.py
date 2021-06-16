@@ -1,7 +1,7 @@
 from helio.settings import *
 
 # websites/manage.py runserver --settings=config.local
-print ('>>>>>>>>> DEPLOY IN LOCAL')
+print ('>>>>>>>>> DEPLOY IN PROD')
 
 DATABASES = {
     'default': {
