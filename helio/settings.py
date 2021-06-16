@@ -11,11 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print ("========================== BASE_DIR ", BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django.contrib.sites',
+    'helio',
     'core',
 ]
 
@@ -63,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -125,3 +130,20 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+STATIC_URL = '/static/'
+# STATIC_ROOT is the folder where static files will be stored after using manage.py collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'public/static')
+print("==== STATIC_ROOT ", STATIC_ROOT)
+# MEDIA_ROOT is the folder where files uploaded using FileField will go.
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public', 'media')
+
+# STATICFILES_DIRS is the list of folders where Django will search for additional static files aside from the static folder of each app installed
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
+print("==== STATICFILES_DIRS ", STATICFILES_DIRS)
