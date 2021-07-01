@@ -31,8 +31,9 @@ python manage.py runserver 0:8000 --settings=config.local
 python manage.py migrate --settings=config.local
 
 uvicorn helio.asgi:application --host 0.0.0.0 --port 8001
+python manage.py collectstatic --settings=config.local
+python manage.py createsuperuser --settings=config.local
 ```
-
 
 ### Systemd
 ```sh
@@ -46,8 +47,6 @@ User=root
 WorkingDirectory=/home/django3
 Environment="DJANGO_SETTINGS_MODULE=config.production"
 ExecStart=/home/django3_env/bin/uvicorn helio.asgi:application --host 0.0.0.0 --port 8001 --log-config log.ini
-StandardOutput=file:/var/log/django3.log
-StandardError=file:/var/log/django3-error.log
 
 [Install]
 WantedBy=multi-user.target
