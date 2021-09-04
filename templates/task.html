@@ -2,7 +2,6 @@
 {% load i18n %}
 {% block extrastylesheet%}
     <link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet">
-    <link href="{{ STATIC_URL }}css/code.css?ver=1.1.0" rel="stylesheet">
 {% endblock%}
 
 {% block extrascript%}
@@ -81,28 +80,6 @@
               <span data-ty>Installed fastapi-utils</span>
           </div>
 
-<div class="codehilite"><pre id="__code_0"><span></span><button class="md-clipboard" title="Copy to clipboard" data-clipboard-target="#__code_0 pre, #__code_0 code"><span class="md-clipboard__message" data-md-timer="">Copied to clipboard</span></button><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
-
-<span class="kn">from</span> <span class="nn">fastapi_utils.session</span> <span class="kn">import</span> <span class="n">FastAPISessionMaker</span>
-<span class="hll"><span class="kn">from</span> <span class="nn">fastapi_utils.tasks</span> <span class="kn">import</span> <span class="n">repeat_every</span>
-</span>
-<span class="n">database_uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"sqlite:///./test.db?check_same_thread=False"</span>
-<span class="n">sessionmaker</span> <span class="o">=</span> <span class="n">FastAPISessionMaker</span><span class="p">(</span><span class="n">database_uri</span><span class="p">)</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-
-
-<span class="k">def</span> <span class="nf">remove_expired_tokens</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">""" Pretend this function deletes expired tokens from the database """</span>
-
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s2">"startup"</span><span class="p">)</span>
-<span class="hll"><span class="nd">@repeat_every</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>  <span class="c1"># 1 hour</span>
-</span><span class="k">def</span> <span class="nf">remove_expired_tokens_task</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">sessionmaker</span><span class="o">.</span><span class="n">context_session</span><span class="p">()</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span>
-        <span class="n">remove_expired_tokens</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
-</code></pre></div>
             <p>
           In conclusion, It is my view that Repeat Task in FastAPI or Flask is priority method for handing a scheduled task
           </p>
