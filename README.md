@@ -34,7 +34,7 @@ uvicorn helio.asgi:application --host 0.0.0.0 --port 8001
 python manage.py collectstatic --settings=config.local
 python manage.py createsuperuser --settings=config.local
 ```
-
+sudo systemctl restart django3
 ### Systemd
 ```sh
 

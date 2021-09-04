@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load i18n %}
+
+
+{% block main_content%}
+
+<div class="section" id="about">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <!-- <div class="h4 mt-0 title">Create scheduled task with cronjob, celery and async in python </div> -->
+            <p>
+            Nowadays, scheduled actions have always been a debating topic amongst python developers. Some people  are convinced that celery or cronjob is the best in creating scheduled jobs. However, I advocate the idea that Repeated Tasks in FastAPI or Flask are more suitable for API services.
+          </p>
+            <p>
+
+          Cronjob's Ubuntu system is a solution I got exposed to at first. It gives you a simple setting with commands and people can get lots of tutorials in the community. However, If developers want a stable process or track details, cronjob is not a good option.
+          </p>
+
+            <p>
+
+          Now, I introduce other solutions for this problem which i have tried. They totally replace cronjob.
+          </p>
+
+            <p>
+          On the one hand, celery is an effective answer for scheduled processes. Firstly, It is a long-standing process. To clarify, celery is a large library integrated with many frameworks such as django. So, it has been certificated by the community in the long time. Secondly, there are lots of functions such as logger, task, and consumption in micro services. Nevertheless, there must be another process to run celery. It means developers have two processes, one for website api and one for celery.
+          </p>
+
+            <p>
+          On the other hand, from my personal perspective, I would completely contend that Repeat tasks in FasiAPI or Flask get more benefit than others. First and foremost, It is easy to config and deep understand. In fact, people can figure out how it really works in framework documents. Furthermore, there are no other processes like the former solution. Service api and repeat tasks can run in the sole process due to they effect by async in python language. However, it can solve complicated problems.
+          </p>
+
+            <p>
+          In conclusion, It is my view that Repeat Task in FastAPI or Flask is priority method for handing a scheduled task
+          </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}
