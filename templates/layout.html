@@ -26,10 +26,9 @@
       </style>
     </noscript>
 
-        {% block extrastylesheet %}{% endblock %}
+    {% block extrastylesheet %}{% endblock %}
 
     <title>{% block title %}{% endblock title %}</title>
-    {% block extrascript %}{% endblock %}
 
   </head>
 
@@ -62,6 +61,8 @@
     <script src="{{ STATIC_URL }}js/now-ui-kit.js?ver=1.1.0"></script>
     <script src="{{ STATIC_URL }}js/aos.js?ver=1.1.0"></script>
     <script src="{{ STATIC_URL }}scripts/main.js?ver=1.1.0"></script>
+    {% block extrascript %}{% endblock %}
+
 </body>
 
 </html>

@@ -24,6 +24,12 @@
  * Copyright 2012-2013 Mattia Larentis
  * http://www.apache.org/licenses/LICENSE-2.0
  */
+
+p{
+  color: #1a1e24;
+  font-size: 16px;
+}
+
 .bootstrap-switch {
   display: inline-block;
   direction: ltr;
@@ -54,6 +60,7 @@
   border-radius: 4px;
   transform: translate3d(0, 0, 0);
   width: 100px !important; }
+
 
 .bootstrap-switch .bootstrap-switch-handle-on,
 .bootstrap-switch .bootstrap-switch-handle-off,

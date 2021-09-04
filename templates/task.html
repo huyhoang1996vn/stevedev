@@ -1,5 +1,14 @@
 {% extends "layout.html" %}
 {% load i18n %}
+{% block extrastylesheet%}
+    <link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/code.css?ver=1.1.0" rel="stylesheet">
+{% endblock%}
+
+{% block extrascript%}
+    <script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0" ></script>
+    <script src="{{ STATIC_URL }}js/terminal.js?ver=1.1.0"></script>
+{% endblock%}
 
 
 {% block main_content%}
@@ -16,22 +25,84 @@
           </p>
             <p>
 
-          Cronjob's Ubuntu system is a solution I got exposed to at first. It gives you a simple setting with commands and people can get lots of tutorials in the community. However, If developers want a stable process or track details, cronjob is not a good option.
+          Cronjob's Ubuntu system is a solution I got exposed to at first. It gives you a simple setting with commands and people can get lots of tutorials in the community. However, If developers want a stable process or track details, cronjob is not a good option. Let's go to terminal.
           </p>
 
-            <p>
+          <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty>To create conjob</span>
+              <span data-ty="input">crontab -e</span>
+              <span data-ty>Edit opened file</span>
+              <span data-ty="input">0 0 * * * python /path/to/project/manage.py send_newsletter > /var/log/cronjob.log 2>&1</span>
+              <span data-ty>Created conjob</span>
+              <span data-ty="input">crontab -l</span>
+              <span data-ty>To show current cronjob</span>
+          </div>
+          <p>
+            0 0 * * * is time which cronjob run. Developers can check syntax scheduled time on website <a href="https://crontab.guru/#0_0_*_*_*">crontab.guru</a>
+          </p>
+          <p>
 
           Now, I introduce other solutions for this problem which i have tried. They totally replace cronjob.
           </p>
 
             <p>
-          On the one hand, celery is an effective answer for scheduled processes. Firstly, It is a long-standing process. To clarify, celery is a large library integrated with many frameworks such as django. So, it has been certificated by the community in the long time. Secondly, there are lots of functions such as logger, task, and consumption in micro services. Nevertheless, there must be another process to run celery. It means developers have two processes, one for website api and one for celery.
+          On the one hand, celery is an effective answer for scheduled processes. Firstly, It is a long-standing process. To clarify, celery is a large library integrated with many frameworks such as django. So, it has been certificated by the community in the long time. Secondly, there are lots of functions such as logger, task, and consumption in micro services. Nevertheless, there must be another process to run celery. It means developers have two processes, one for website api and one for celery. For example.
           </p>
+
+          <div class="termy1" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">pip install django-celery-results</span>
+              <span data-ty="progress"></span>
+              <span data-ty>Installed celery</span>
+              <span data-ty>Add django_celery_results to INSTALLED_APPS</span>
+              <span data-ty>INSTALLED_APPS = (
+                  ...,
+                  'django_celery_results',
+              )</span>
+              <span data-ty="input">python manage.py migrate django_celery_results</span>
+              <span data-ty>Successfully installed celery</span>
+              <span data-ty></span>
+              <span data-ty>Configure Celery to use the django-celery-results backend</span>
+              <span data-ty>CELERY_BROKER_URL = 'redis://localhost:6379'
+                CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+                CELERY_ACCEPT_CONTENT = ['application/json']
+                CELERY_RESULT_SERIALIZER = 'json'
+                CELERY_TASK_SERIALIZER = 'json'
+              </span>
+          </div>
+
 
             <p>
           On the other hand, from my personal perspective, I would completely contend that Repeat tasks in FasiAPI or Flask get more benefit than others. First and foremost, It is easy to config and deep understand. In fact, people can figure out how it really works in framework documents. Furthermore, there are no other processes like the former solution. Service api and repeat tasks can run in the sole process due to they effect by async in python language. However, it can solve complicated problems.
           </p>
 
+          <div class="termy2" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">pip install fastapi-utils</span>
+              <span data-ty="progress"></span>
+              <span data-ty>Installed fastapi-utils</span>
+          </div>
+
+<div class="codehilite"><pre id="__code_0"><span></span><button class="md-clipboard" title="Copy to clipboard" data-clipboard-target="#__code_0 pre, #__code_0 code"><span class="md-clipboard__message" data-md-timer="">Copied to clipboard</span></button><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
+
+<span class="kn">from</span> <span class="nn">fastapi_utils.session</span> <span class="kn">import</span> <span class="n">FastAPISessionMaker</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">fastapi_utils.tasks</span> <span class="kn">import</span> <span class="n">repeat_every</span>
+</span>
+<span class="n">database_uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"sqlite:///./test.db?check_same_thread=False"</span>
+<span class="n">sessionmaker</span> <span class="o">=</span> <span class="n">FastAPISessionMaker</span><span class="p">(</span><span class="n">database_uri</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">remove_expired_tokens</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">""" Pretend this function deletes expired tokens from the database """</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s2">"startup"</span><span class="p">)</span>
+<span class="hll"><span class="nd">@repeat_every</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>  <span class="c1"># 1 hour</span>
+</span><span class="k">def</span> <span class="nf">remove_expired_tokens_task</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">sessionmaker</span><span class="o">.</span><span class="n">context_session</span><span class="p">()</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">remove_expired_tokens</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+</code></pre></div>
             <p>
           In conclusion, It is my view that Repeat Task in FastAPI or Flask is priority method for handing a scheduled task
           </p>
@@ -44,3 +115,21 @@
 </div>
 
 {% endblock%}
+
+
+         <!--  <div id="termynal" data-termynal data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">crontab -e</span>
+              <span data-ty="progress"></span>
+              <span data-ty>Successfully installed spacy</span>
+              <span data-ty></span>
+              <span data-ty="input">python -m spacy download en</span>
+              <span data-ty="progress"></span>
+              <span data-ty>Installed model 'en'</span>
+              <span data-ty></span>
+              <span data-ty="input">python</span>
+              <span data-ty="input" data-ty-prompt=">>>">import spacy</span>
+              <span data-ty="input" data-ty-prompt=">>>">nlp = spacy.load('en')</span>
+              <span data-ty="input" data-ty-prompt=">>>">doc = nlp(u'Hello world')</span>
+              <span data-ty="input" data-ty-prompt=">>>">print([(w.text, w.pos_) for w in doc])</span>
+              <span data-ty>[('Hello', 'INTJ'), ('world', 'NOUN')]</span>
+          </div> -->
