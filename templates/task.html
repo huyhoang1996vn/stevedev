@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block extrastylesheet%}
     <link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/code.css?ver=1.1.0" rel="stylesheet">
 {% endblock%}
 
 {% block extrascript%}
@@ -12,7 +13,7 @@
 
 {% block main_content%}
 
-<div class="section" id="about">
+<div class="section" id="code">
   <div class="container">
     <div class="card" data-aos="fade-up" data-aos-offset="10">
       <div class="row">
@@ -20,11 +21,11 @@
           <div class="card-body">
             <!-- <div class="h4 mt-0 title">Create scheduled task with cronjob, celery and async in python </div> -->
             <p>
-            Nowadays, scheduled actions have always been a debating topic amongst python developers. Some people  are convinced that celery or cronjob is the best in creating scheduled jobs. However, I advocate the idea that Repeated Tasks in FastAPI or Flask are more suitable for API services.
+            Nowadays, scheduled actions have always been a debating topic amongst python developers. Some people  are convinced that <span class="bowl">celery</span> or <span class="bowl">cronjob</span> is the best in creating scheduled jobs. However, I advocate the idea that <span class="bowl">repeated tasks</span> in FastAPI or Flask are more suitable for API services.
           </p>
             <p>
 
-          Cronjob's Ubuntu system is a solution I got exposed to at first. It gives you a simple setting with commands and people can get lots of tutorials in the community. However, If developers want a stable process or track details, cronjob is not a good option. Let's go to terminal.
+          <span class="bowl">Cronjob</span> 's Ubuntu system is a solution I got exposed to at first. It gives you a simple setting with commands and people can get lots of tutorials in the community. However, If developers want a stable process or track details, cronjob is not a good option. Let's go to terminal.
           </p>
 
           <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
@@ -45,7 +46,7 @@
           </p>
 
             <p>
-          On the one hand, celery is an effective answer for scheduled processes. Firstly, It is a long-standing process. To clarify, celery is a large library integrated with many frameworks such as django. So, it has been certificated by the community in the long time. Secondly, there are lots of functions such as logger, task, and consumption in micro services. Nevertheless, there must be another process to run celery. It means developers have two processes, one for website api and one for celery. For example.
+          On the one hand, <span class="bowl">Celery</span> is an effective answer for scheduled processes. Firstly, It is a long-standing process. To clarify, celery is a large library integrated with many frameworks such as django. So, it has been certificated by the community in the long time. Secondly, there are lots of functions such as logger, task, and consumption in micro services. Nevertheless, there must be another process to run celery. It means developers have two processes, one for website api and one for celery. For example.
           </p>
 
           <div class="termy1" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
@@ -59,19 +60,20 @@
               )</span>
               <span data-ty="input">python manage.py migrate django_celery_results</span>
               <span data-ty>Successfully installed celery</span>
-              <span data-ty></span>
-              <span data-ty>Configure Celery to use the django-celery-results backend</span>
-              <span data-ty>CELERY_BROKER_URL = 'redis://localhost:6379'
-                CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-                CELERY_ACCEPT_CONTENT = ['application/json']
-                CELERY_RESULT_SERIALIZER = 'json'
-                CELERY_TASK_SERIALIZER = 'json'
-              </span>
           </div>
-
+          <p>Configure Celery to use the django-celery-results backend.</p>
+          <pre>
+            <code>
+          CELERY_BROKER_URL = 'redis://localhost:6379'
+          CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+          CELERY_ACCEPT_CONTENT = ['application/json']
+          CELERY_RESULT_SERIALIZER = 'json'
+          CELERY_TASK_SERIALIZER = 'json'
+            </code>
+          </pre>
 
             <p>
-          On the other hand, from my personal perspective, I would completely contend that Repeat tasks in FasiAPI or Flask get more benefit than others. First and foremost, It is easy to config and deep understand. In fact, people can figure out how it really works in framework documents. Furthermore, there are no other processes like the former solution. Service api and repeat tasks can run in the sole process due to they effect by async in python language. However, it can solve complicated problems.
+          On the other hand, from my personal perspective, I would completely contend that <span class="bowl">Repeated tasks</span> in FasiAPI or Flask get more benefit than others. First and foremost, It is easy to config and deep understand. In fact, people can figure out how it really works in framework documents. Furthermore, there are no other processes like the former solution. Service api and repeated tasks can run in the sole process due to they effect by async in python language. However, it can solve complicated problems.
           </p>
 
           <div class="termy2" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
@@ -80,8 +82,22 @@
               <span data-ty>Installed fastapi-utils</span>
           </div>
 
+          <p>There is a simple example in FastAPI.</p>
+          <pre>
+            <code>
+              from fastapi import FastAPI
+              <code class="highlight">from fastapi_utils.tasks import repeat_every</code>
+
+              app = FastAPI()
+
+              @app.on_event("startup")
+              <code class="highlight">@repeat_every(seconds=60 * 60)  # 1 hour</code>
+              def remove_expired_tokens_task() -> None:
+                  # Do some thing ...
+            </code>
+          </pre>
             <p>
-          In conclusion, It is my view that Repeat Task in FastAPI or Flask is priority method for handing a scheduled task
+          In conclusion, It is my view that <span class="bowl">Repeated Task</span> in FastAPI or Flask is priority method for handing a scheduled task
           </p>
           </div>
         </div>

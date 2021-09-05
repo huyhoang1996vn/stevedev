@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('task', views.task, name='task'),
+    path('create-scheduled-tasks-with-cronjob-celery-and-async-in-python.html', views.task, name='task'),
 ]

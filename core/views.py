@@ -9,4 +9,4 @@ def index(request):
 
 
 def task(request):
-    return render(request, 'task.html', {"title_pager": "Create scheduled task with cronjob, celery and async in python", "author": "by Steve Nguyen"})
+    return render(request, 'task.html', {"title_pager": "Create scheduled tasks with cronjob, celery and async in python", "author": "by Steve Nguyen"})

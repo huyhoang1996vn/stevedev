@@ -1,0 +1,15 @@
+/*pre code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+}
+*/
+
+pre code .highlight{
+    background-color: rgba(255,235,59,.5);
+}
+#code p{
+  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 21px;
+}
