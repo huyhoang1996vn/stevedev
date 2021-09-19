@@ -373,7 +373,7 @@
     </div>
   </div>
 </div>
-
+<!-- request.META.HTTP_HOST -->
 <div class="section">
   <div class="container cc-education">
     <div class="h4 text-center mb-4 title">Reference</div>
@@ -383,13 +383,13 @@
           <a target="_blank" href="{% url 'paypal' %}">{{ request.META.HTTP_HOST }}stevenguyen.cf/paypal-payments-integration-guide.html</a>
         </p></li>
         <li><p>
-          <a target="_blank" href="{% url 'in_app' %}">stevenguyen.cf/in-app-payments-integration-guide.html</a>
+          <a target="_blank" href="{% url 'in_app' %}">{{ request.get_host }}/in-app-payments-integration-guide.html</a>
         </p></li>
         <li><p>
-          <a target="_blank" href="{% url 'oauth' %}">stevenguyen.cf/oauth-and-oauth2-workflow.html</a>
+          <a target="_blank" href="{% url 'oauth' %}">{{ request.get_host }}/oauth-and-oauth2-workflow.html</a>
         </p></li>
         <li><p>
-          <a target="_blank" href="{% url 'minio' %}">stevenguyen.cf/amazon-s3-and-minio-object-storage-service.html</a>
+          <a target="_blank" href="{% url 'minio' %}">{{ request.get_host }}/amazon-s3-and-minio-object-storage-service.html</a>
         </p></li>
       </ul>
   </div>
