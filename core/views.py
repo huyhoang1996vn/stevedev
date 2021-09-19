@@ -16,3 +16,9 @@ def paypal(request):
 
 def in_app(request):
     return render(request, 'in_app.html', {"title_pager": "In-App Payment Guide In Service API", "author": "by Steve Nguyen"})
+
+def oauth(request):
+    return render(request, 'oauth.html', {"title_pager": "OAuth And OAuth2 Workflow", "author": "by Steve Nguyen"})
+
+def minio(request):
+    return render(request, 'minio.html', {"title_pager": "Amazon S3 And Minio Object Storage Service", "author": "by Steve Nguyen"})

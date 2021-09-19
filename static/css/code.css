@@ -13,3 +13,14 @@ pre code .highlight{
   font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 21px;
 }
+
+.minio-image{
+	max-width: 624px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

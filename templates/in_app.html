@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block extrastylesheet%}
     <link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet">
-    <link href="{{ STATIC_URL }}css/code.css?ver=1.1.0" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet">
 {% endblock%}
 
 {% block extrascript%}
@@ -30,7 +30,7 @@
             <p>
               In addition, Backend developers and Mobile developers are willing with In-App payment because of the simple process. For example, react-native-iap library has described in detail what developers need to do. Let’s see:
             </p>
-            <img src="{{ STATIC_URL }}images/flow-apple.png" alt="Image"/>
+            <img class="center" src="{{ STATIC_URL }}images/flow-apple.png" alt="Image"/>
             <br>
             <p>
               There is a heavy workload in library and server Apple/Google but there are no adserties for developers. Before applications in mobile redirect to server Apple/Google, there is a subscription between app and payment flow. When purchars have just been done, apps will detect through the former subscription. Finally, apps intend to send payment results to the server backend. On the server, developers may store transactions in the database. 
