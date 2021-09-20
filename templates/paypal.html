@@ -20,10 +20,10 @@
         <div class="col-lg-12 col-md-12">
           <div class="card-body">
             <p>
-            These days, it is obvious that online payment is widely considered as a topic of concern for the whole society in general and for the developer community in particular. Paypal is the faster and safer way to make an online payment. There are two solutions supported by paypal to let developers know when orders are completed. They are webhook paypal and api payment paypal. From my personal perspective, I am totally convinced that api payment paypal should be integrated in API services.
+            These days, it is obvious that online payment is widely considered as a topic of concern for the whole society in general and for the developer community in particular. Paypal is the faster and safer way to make an online payment. There are two solutions supported by paypal to let developers know when orders are completed. They are <strong>webhook paypal</strong> and <strong>api payment paypal</strong>. From my personal perspective, I am totally convinced that api payment paypal should be integrated in API services.
             </p>
             <p>
-              On the one hand, webhook paypal is automated events which server paypal calls specified api. For example, when customers check out several items on a website and completely pay orders in paypal, server paypal intends to send a request to the website. Thanks for this notification, the website determines when orders are paid and updated in the database. Webhook is the same with ipn (instant payment notification) in the old system.
+              On the one hand, <strong>webhook paypal</strong> is automated events which server paypal calls specified api. For example, when customers check out several items on a website and completely pay orders in paypal, server paypal intends to send a request to the website. Thanks for this notification, the website determines when orders are paid and updated in the database. Webhook is the same with ipn (instant payment notification) in the old system.
             </p>
             <p>
               People are really genius at understanding documents about webhook in paypal. To don’t waste time, I will describe it in short. 
@@ -37,10 +37,10 @@
               <p><a href="https://developer.paypal.com/docs/api/overview/#get-credentials" target="_blank" pa-marked="1">Create an app</a> to generate your API credentials and subscribe to webhook events. If you already have an app, proceed to the <a href="#step-3" pa-marked="1">next step</a>.</p>
               </li>
               <li>
-              <p><a id="step-3" pa-marked="1"></a>In the <strong>REST API apps</strong> section, click the link for the app to which you want to subscribe events.</p>
+              <p><a id="step-3" pa-marked="1"></a>In the REST API apps section, click the link for the app to which you want to subscribe events.</p>
               </li>
               <li>
-              <p>In the webhooks section, click <strong>Add Webhook</strong>.</p>
+              <p>In the webhooks section, click Add Webhook.</p>
               </li>
               </ol>
             </p>
@@ -55,7 +55,7 @@
           </p>
           <br>
           <p>
-            On the other hand, I totally advocate that api payment paypal is the best option in the payment paypal process. This opinion is held because this approach can fix the former problem. To clarify, when customers successfully pay in paypal.com and return to the website, the server website will detect payment information. Instead of waiting for paypal send notification, the server website intends to find the order by api payment paypal. If the order is found and verified, the server website is going to complete the order and store it in the database.
+            On the other hand, I totally advocate that <strong>api payment paypal</strong> is the best option in the payment paypal process. This opinion is held because this approach can fix the former problem. To clarify, when customers successfully pay in paypal.com and return to the website, the server website will detect payment information. Instead of waiting for paypal send notification, the server website intends to find the order by api payment paypal. If the order is found and verified, the server website is going to complete the order and store it in the database.
           </p>
 
           <p>
@@ -63,7 +63,7 @@
             People can check by field: paymentId. Then,  people can verify an order by payerID and compare it with the status order in the database.
           </p>
           <p>
-            First, people should have a token to call api paypal follow in <a href="https://developer.paypal.com/docs/platforms/get-started/" target="_blank" >PayPal Oauth2 API</a>
+            First, people should have a token to call <strong>api payment paypal</strong>  in <a href="https://developer.paypal.com/docs/platforms/get-started/" target="_blank" >PayPal Oauth2 API</a>
           </p>
             <!-- <img src="{{ STATIC_URL }}images/get-token.png" alt="Image"/> -->
             <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="1000">
@@ -88,7 +88,7 @@
             Fortunately, instead of calling these api directly, I appreciate a library in github <a href="https://github.com/paypal/PayPal-Python-SDK" target="_blank">PayPal-Python-SDK</a> . Enjoy it!
           </p>
           <p>
-            As a result, all the standpoints lead to a firm opinion that Api payment paypal will helps developers accomplish payment function with available libraries.
+            As a result, all the standpoints lead to a firm opinion that <strong>api payment paypal</strong>  will helps developers accomplish payment function with available libraries.
           </p>
       </div>
     </div>
