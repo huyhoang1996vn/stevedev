@@ -22,3 +22,6 @@ def oauth(request):
 
 def minio(request):
     return render(request, 'minio.html', {"title_pager": "Amazon S3 And Minio Object Storage Service", "author": "by Steve Nguyen"})
+
+def unit_test(request):
+    return render(request, 'unit_test.html', {"title_pager": "Unit Test And Selenium Guide", "author": "by Steve Nguyen"})
