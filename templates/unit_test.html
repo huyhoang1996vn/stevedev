@@ -27,49 +27,44 @@
             <p>These days, testing is a necessary part of the development process but not all software companies have a testing department. So, software engineers need to have checking skills to complete projects without a professional tester. So, I have been persuaded that testing is a critical experience while processing software.
             </p>
             <p>
-                First and foremost, unit test is a specific inspection process helping developers review code exactly. To make it more clear, the code with the function is investigate program (In Other Words, program check program). It helps people check applications still run without having an intense effect. Let see
+                First and foremost, <strong>unit test</strong> is a specific inspection process helping developers review code exactly. 
+                To make it more clear, the code with the function is investigate program (In Other Words, program check program). 
+                It helps people check applications still run without having an intense effect. Let's see on <a href="https://flask.palletsprojects.com/en/2.0.x/testing/" target="_blank">Flask Tesing</a> library. 
+                I use it in example below.
             </p>
             <pre>
               <code data-language="python">
-import unittest
-from main_api import app
+import json
+import pytest
+from apiapp.main_api import app # Import your application instance
+ 
+@pytest.fixture
+def client():
+    with app.test_client() as client:
+        return client
  
  
-class ControllerTestCase(unittest.TestCase):
-    def setUp(self):
-        self.app = app
-        self.app.config['TESTING'] = True
-        self.client = self.app.test_client()
-        self.headers = {'Authorization':
-                        'Bearer YourToken',
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                        }
-        self.payload = [
-            {
-                "id": 5,
-                "email": "steve@gmail.com",
-                "version_id": 1
-            }
-        ]
- 
-    def test_get_response(self):
-        response = self.client.post(
-            '/api/multi_upsert_objects/', data=str(self.payload), headers=self.headers)
-        print("=== response ", (response))
-        expected_resp = {}
-        self.assertEqual(response.status_code, 200)
-        self.assertDictEqual(response.get_json(), expected_resp)
- 
- 
-if __name__ == "__main__":
-    unittest.main()
+def test_register_validate_input(client):
+    response = client.post(
+        "/api/report/balance", json={
+            "start_date": "2021-11-01 02:00:00"
+        }, headers={'Authorization':'YourToken',
+                     'Content-Type': 'application/json'
+                     }
+    )
+    if response.data:
+        data = json.loads(response.get_data())
+        assert 'message' in data
               </code>
             </pre>
 
             <br>
             <p>However, unit test can not check function which clients usually typing in UI/UX.</p>
             <br>  
-            <p>Second, selenium is a human reaction simulator on screen. This opinion is held because selenium handles actions as humans do it such as opening popup, submitting a form .When a team accomplishes a new version production, selenium helps testers not spend time checking old functions again. Team just runs a selenium function which has defined actions on screen</p>
+            <p>Second, <strong>selenium</strong> is a human reaction simulator on screen. 
+              This opinion is held because selenium handles actions as humans do it such as opening popup, submitting a form. 
+              When a team accomplishes a new version production, selenium helps testers not spend time checking old functions again. 
+              Team just runs a selenium function which has defined actions on screen. In practice, I usually go through on <a href="https://seleniumbase.com/" target="_blank">SeleniumBase</a> and <a href="https://faker.readthedocs.io/en/master/" target="_blank">Faker</a></p>
             <br>
 
             <pre>
