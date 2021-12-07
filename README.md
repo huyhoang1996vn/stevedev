@@ -6,7 +6,7 @@ python3.7
 ```sh
 # https://dev.to/serhatteker/how-to-upgrade-to-python-3-7-on-ubuntu-18-04-18-10-5hab
 # https://websiteforstudents.com/installing-the-latest-python-3-7-on-ubuntu-16-04-18-04/
-virtualenv -p python3.7 django3_env
+virtualenv -p python3.8 django3_env
 source django3_env/bin/activate
 ```
 
@@ -35,6 +35,9 @@ python manage.py collectstatic --settings=config.local
 python manage.py createsuperuser --settings=config.local
 ```
 sudo systemctl restart django3
+systemctl status django3.service
+cat /etc/systemd/system/django3.service
+
 ### Systemd
 ```sh
 
@@ -51,3 +54,15 @@ ExecStart=/home/django3_env/bin/uvicorn helio.asgi:application --host 0.0.0.0 --
 [Install]
 WantedBy=multi-user.target
 ```
+
+docker run -d --name postgres  -p 5432:5432  -e "POSTGRES_USER=postgres"  -e "POSTGRES_PASSWORD=postgres"  postgres:10.17
+
+
+
+docker-compose -f docker-compose.yml up -d
+
+sudo docker-compose -f docker-compose.yml up -d --build --force-recreate web
+
+docker exec -it django3_web_1 bash
+
+docker exec django3_web_1 bash -c "python manage.py collectstatic --noinput"
