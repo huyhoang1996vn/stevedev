@@ -35,8 +35,14 @@ python manage.py collectstatic --settings=config.local
 python manage.py createsuperuser --settings=config.local
 ```
 sudo systemctl restart django3
+<<<<<<< Updated upstream
 systemctl status django3.service
 cat /etc/systemd/system/django3.service
+=======
+sudo cat /dev/null > /var/log/syslog
+0 0 * * *  find  /var/log/syslog.1  -delete
+0 0 * * *  find  /var/log/*.gz -delete
+>>>>>>> Stashed changes
 
 ### Systemd
 ```sh
@@ -55,6 +61,7 @@ ExecStart=/home/django3_env/bin/uvicorn helio.asgi:application --host 0.0.0.0 --
 WantedBy=multi-user.target
 ```
 
+<<<<<<< Updated upstream
 docker run -d --name postgres  -p 5432:5432  -e "POSTGRES_USER=postgres"  -e "POSTGRES_PASSWORD=postgres"  postgres:10.17
 
 
@@ -66,3 +73,27 @@ sudo docker-compose -f docker-compose.yml up -d --build --force-recreate web
 docker exec -it django3_web_1 bash
 
 docker exec django3_web_1 bash -c "python manage.py collectstatic --noinput"
+=======
+
+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
+
+
+
+<VirtualHost *:80>
+    ServerName stevedev.cf
+    ServerAlias resume.stevedev.cf
+    ProxyRequests On
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:8001/
+    ProxyPassReverse / http://127.0.0.1:8001/
+</VirtualHost>
+sudo certbot --apache -d stevedev.cf -d www.stevedev.cf
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04
+
+ProxyPreserveHost On
+
+sudo sysctl -p
+
+docker run -d -p 9000:9000 -p 9001:9001 \ --name minio-server \ -d \ -v /minio-server/data:/data \ -e "MINIO_ROOT_USER=huyhoang1996ha" \ -e "MINIO_ROOT_PASSWORD=huyhoang@123" \ quay.io/minio/minio server /data --console-address ":9001"
+
+>>>>>>> Stashed changes
