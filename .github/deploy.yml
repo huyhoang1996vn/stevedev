@@ -1,0 +1,22 @@
+name: deploy # Workflow
+on: [push] # Event
+jobs: #Jobs
+  ssh-remote-server: #Job
+    runs-on: ubuntu-latest # Runner
+    steps: # Step
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master # Action
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: | # run with multiple script
+            cd /home/team
+            git clone https://github.com/huyhoang1996vn/django3.git
+            cd django3
+            git pull origin master
+            ls -a
+            docker-compose -f docker-compose.yml up -d --build --force-recreate
+            docker ps
+    
