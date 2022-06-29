@@ -92,3 +92,15 @@ sudo sysctl -p
 
 docker run -d -p 9000:9000 -p 9001:9001 \ --name minio-server \ -d \ -v /minio-server/data:/data \ -e "MINIO_ROOT_USER=huyhoang1996ha" \ -e "MINIO_ROOT_PASSWORD=huyhoang@123" \ quay.io/minio/minio server /data --console-address ":9001"
 
+
+
+https://www.w3schools.com/howto/howto_css_cards.asp
+
+
+sudo docker build -t django3:0.0.2 .
+sudo docker run -d -p 8011:8011 --name=django3 django3:0.0.2
+sudo docker build -t django3:0.0.2 .
+
+sudo docker build -t huyhoang1996ha/django3:0.0.2 .
+sudo docker push huyhoang1996ha/django3:0.0.2
+sudo docker run -d -p 8011:8011 --name=django3 huyhoang1996ha/django3:0.0.5
