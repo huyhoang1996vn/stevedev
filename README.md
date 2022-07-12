@@ -59,10 +59,9 @@ ExecStart=/home/django3_env/bin/uvicorn helio.asgi:application --host 0.0.0.0 --
 [Install]
 WantedBy=multi-user.target
 ```
-
+### Docker
+```sh
 docker run -d --name postgres  -p 5432:5432  -e "POSTGRES_USER=postgres"  -e "POSTGRES_PASSWORD=postgres"  postgres:10.17
-
-
 
 docker-compose -f docker-compose.yml up -d
 
@@ -72,7 +71,23 @@ docker exec -it django3_web_1 bash
 
 docker exec django3_web_1 bash -c "python manage.py collectstatic --noinput"
 
+```
 
+### Docker hub
+```sh
+sudo docker build -t django3:0.0.2 .
+sudo docker run -d -p 8011:8011 --name=django3 django3:0.0.2
+sudo docker build -t django3:0.0.2 .
+
+sudo docker build -t huyhoang1996ha/django3:0.0.2 .
+sudo docker push huyhoang1996ha/django3:0.0.2
+sudo docker run -d -p 8011:8011 --name=django3 huyhoang1996ha/django3:0.0.5
+```
+
+
+
+### Nginx config
+```sh
 
 <VirtualHost *:80>
     ServerName stevedev.cf
@@ -82,25 +97,48 @@ docker exec django3_web_1 bash -c "python manage.py collectstatic --noinput"
     ProxyPass / http://127.0.0.1:8001/
     ProxyPassReverse / http://127.0.0.1:8001/
 </VirtualHost>
+```
+
+### Certbot config
+
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04
+
+
+```sh
 
 sudo certbot --apache -d stevedev.cf -d www.stevedev.cf
-https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04
 
 ProxyPreserveHost On
 
-sudo sysctl -p
-
 docker run -d -p 9000:9000 -p 9001:9001 \ --name minio-server \ -d \ -v /minio-server/data:/data \ -e "MINIO_ROOT_USER=huyhoang1996ha" \ -e "MINIO_ROOT_PASSWORD=huyhoang@123" \ quay.io/minio/minio server /data --console-address ":9001"
+```
 
 
 
 https://www.w3schools.com/howto/howto_css_cards.asp
 
 
-sudo docker build -t django3:0.0.2 .
-sudo docker run -d -p 8011:8011 --name=django3 django3:0.0.2
-sudo docker build -t django3:0.0.2 .
 
-sudo docker build -t huyhoang1996ha/django3:0.0.2 .
-sudo docker push huyhoang1996ha/django3:0.0.2
-sudo docker run -d -p 8011:8011 --name=django3 huyhoang1996ha/django3:0.0.5
+## Django in serverless (Zappa)
+### library
+```sh
+pip install zappa
+pip install django-s3-storage
+```
+
+### Commands zappa
+```sh
+zappa init
+zappa deploy (stage)
+zappa update dev
+zappa tail
+zappa manage dev "collectstatic --noinput"
+
+```
+
+### Tutorial zappa
+https://www.section.io/engineering-education/deploying-a-serverless-django-restapi-with-zappa-on-aws/
+https://auth0.com/blog/deploying-django-restful-apis-as-serverless-applications-with-zappa/#Deploying-with-Zappa
+
+### Custom domain zappa
+https://romandc.com/zappa-django-guide/walk_domain/
