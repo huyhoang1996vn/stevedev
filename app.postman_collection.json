@@ -1,0 +1,209 @@
+{
+	"variables": [],
+	"info": {
+		"name": "app",
+		"_postman_id": "a7d6b1d3-c1a8-33fe-65c6-228e76083835",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\": \"steve@123\",\n\t\"username\":\"student\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get book",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/book?name=eng",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"book"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "eng",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\": \"123456\",\n\t\"username\":\"steve\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "borrow book",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/borrow/book",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxNzU5NzU1LCJpYXQiOjE2NjE2NzMzNTUsImp0aSI6ImQ3MTVmNzg4NGRmODRlN2I5NDM4YjcxYjYxMTcwMTk3IiwidXNlcl9pZCI6M30.iiz0VGtvjNwRnhcz3pATGt1lN1hxQeEy_Ee1mQ1aDK4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"return_day\": \n        \"2022-09-03\"\n    ,\n    \"student\": \n        4\n    ,\n    \"book\": \n        2\n    \n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "return book",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/return/book",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxNzU5NzU1LCJpYXQiOjE2NjE2NzMzNTUsImp0aSI6ImQ3MTVmNzg4NGRmODRlN2I5NDM4YjcxYjYxMTcwMTk3IiwidXNlcl9pZCI6M30.iiz0VGtvjNwRnhcz3pATGt1lN1hxQeEy_Ee1mQ1aDK4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"student\": 4,\n    \"book\":2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get tracking book",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tracking/book?student=4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tracking",
+						"book"
+					],
+					"query": [
+						{
+							"key": "student",
+							"value": "4",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxNzU5NzU1LCJpYXQiOjE2NjE2NzMzNTUsImp0aSI6ImQ3MTVmNzg4NGRmODRlN2I5NDM4YjcxYjYxMTcwMTk3IiwidXNlcl9pZCI6M30.iiz0VGtvjNwRnhcz3pATGt1lN1hxQeEy_Ee1mQ1aDK4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"student\": \n        4\n    ,\n    \"book\": \n        1\n    \n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "renew/book",
+			"request": {
+				"url": "http://127.0.0.1:8000/api/renew/book",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxNzY3Mzg4LCJpYXQiOjE2NjE2ODA5ODgsImp0aSI6ImI5NjVhYjM0YzEzMTQxYWY4ZTVjMzg3YzQwZDQ2NmI5IiwidXNlcl9pZCI6NH0.1IA8KDHcCCbrIgoTa3f9AWlG_sEk43KASks0T7XxAx4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"book\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

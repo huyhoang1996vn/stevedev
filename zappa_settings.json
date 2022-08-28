@@ -5,7 +5,7 @@
         "project_name": "django3",
         "runtime": "python3.8",
         "s3_bucket": "zappa-5ntulw84i",
-        "certificate_arn": "arn:aws:acm:us-east-1:157500514804:certificate/8b03c297-0f45-45bc-9de2-22a818229af1",
+        "certificate_arn": "",
         "domain": "stevedev.cf"
     }
 }
