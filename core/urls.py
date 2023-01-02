@@ -10,5 +10,6 @@ urlpatterns = [
     path('oauth-and-oauth2-workflow.html', views.oauth, name='oauth'),
     path('amazon-s3-and-minio-object-storage-service.html', views.minio, name='minio'),
     path('unit-test-selenium-guide.html', views.unit_test, name='unit-test'),
+    path('deploy-django-on-pythonanywhere.html', views.pythonanywhere, name='pythonanywhere'),
 
 ]

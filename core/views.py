@@ -25,3 +25,6 @@ def minio(request):
 
 def unit_test(request):
     return render(request, 'unit_test.html', {"title_pager": "Unit Test And Selenium Guide", "author": "by Steve Nguyen"})
+
+def pythonanywhere(request):
+    return render(request, 'pythonanywhere.html', {"title_pager": "Deploy Django on Pythonanywhere Guide", "author": "by Steve Nguyen"})

@@ -1,0 +1,171 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              Storage capacities have always been a debating problem amongst
+              developers. Some people still use local storage. However, I hold a
+              trong favor for an
+              <span class="font-weight-bold">Object storage service</span> such
+              as <span class="font-weight-bold">Minio</span> or
+              <span class="font-weight-bold">Amazon S3</span> (Amazon Simple
+              Storage Service).
+            </p>
+            <br />
+            <p>
+              <span class="font-weight-bold">Object storage</span> is
+              unstructured data which people frequently see images, videos and
+              so on. They have a range size from several KB to milition GB.
+              Applications always have to save these files and even pay
+              enormously. Storage assignment is significant.
+            </p>
+            <p>
+              Normally, developers put data files in local storage. There are
+              several disadvantages when doing that. So, developers have
+              considered storage servers. Nowaday,
+              <span class="font-weight-bold">Object storage service</span> is
+              more popular for several reasons.
+            </p>
+            <h3>Scalability</h3>
+            <p>
+              Local storage often depends on physical hardware. Once the maximum
+              limit of the local storage is reached, people have to add new
+              space, which does not resist downtime. Conversely, Minio has
+              virtually unlimited storage. That means, this service allows
+              people to broaden storage anytime not to be concerned.
+            </p>
+            <h3>High secure</h3>
+            <p>
+              Data stored in your Minio environment is protected from
+              unauthorized access thanks to encryption features and access
+              management tools. Hackers do not have ability to get exact path of
+              file in server.
+            </p>
+            <h3>Policies</h3>
+            <p>
+              Minio even allows creating users and groups. Moreover, Minio has
+              policies to define actions or resources which users can access.
+              Now, teammates can share resources in minio without concerned
+              permissions.
+            </p>
+            <h3>Support distribution</h3>
+            <p>
+              Distribution is essential in the state of the art system,
+              especially micro services. Minio is totally appropriate to this
+              system. However, this is really a bigger topic. I will explain in
+              next article. Details in
+              <a
+                href="https://docs.min.io/docs/distributed-minio-quickstart-guide.html"
+                target="_blank"
+                >Distributed Minio</a
+              >
+            </p>
+            <br />
+            <p>Let’s create tutorial with minio and python.</p>
+            <p>Create minio with docker like that</p>
+            <div
+              class="termy"
+              data-termynal
+              data-ty-typeDelay="40"
+              data-ty-lineDelay="1000"
+            >
+              <span data-ty="input"
+                >docker run -p 9000:9000 -p 9001:9001 -e
+                "MINIO_ROOT_USER=yourusername" -e
+                "MINIO_ROOT_PASSWORD=yourpassword" -d -v /minio/data:/data
+                --name minio minio/minio server /data</span
+              >
+            </div>
+            <br />
+            <br />
+            <p>
+              <img src="{{ STATIC_URL }}images/minio.png" alt="Minio" />
+            </p>
+            <br />
+            <p>Another Minio image</p>
+            <div
+              class="termy1"
+              data-termynal
+              data-ty-typeDelay="40"
+              data-ty-lineDelay="1000"
+            >
+              <span data-ty="input"
+                >docker run \ -p 9000:9000 \ -p 9001:9001 \ --name minio-server
+                \ -d \ -v /minio-server/data:/data \ -e
+                "MINIO_ROOT_USER=yourusername" \ -e
+                "MINIO_ROOT_PASSWORD=yourpassword" \ quay.io/minio/minio server
+                /data --console-address ":9001"
+              </span>
+            </div>
+            <br />
+            <br />
+            <p>
+              <img
+                src="{{ STATIC_URL }}images/minio-console.png"
+                alt="Minio Console"
+              />
+            </p>
+            <br />
+            <p>
+              On the other hand, Mino explicitly supports python language in the
+              offical document
+              <a
+                href="https://docs.min.io/docs/python-client-api-reference.html"
+                target="_blank"
+                >python-client-api</a
+              >
+
+              developers just follow and enjoy it. For example:
+            </p>
+            <br />
+
+            <pre>
+            <code>
+              from minio import Minio
+              from config import setting_project # This is my config
+
+              client = Minio(
+                  setting_project.minio_url,
+                  access_key=setting_project.minio_access_key,
+                  secret_key=setting_project.minio_secret_key,
+                  secure=setting_project.minio_secure
+              )
+              found = client.bucket_exists(setting_project.minio_bucket)
+              if not found:
+                  client.make_bucket(setting_project.minio_bucket)
+
+
+              // create 
+              client.put_object(
+                          setting_project.minio_bucket, file_location, file.file, len(byte_file)
+                      )
+              // get 
+              data = client.get_object(setting_project.minio_bucket, path)
+            </code>
+          </pre>
+            <br />
+            <br />
+            <p>
+              In summary, Object storage services would reap more benefits in
+              handling data. Developers do not bother to scale systems which
+              exceed capacity. OSS also supports distributed very well and
+              completely.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}
