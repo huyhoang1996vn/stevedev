@@ -10,6 +10,8 @@
     <link href="{{ STATIC_URL }}css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/main.css?ver=1.1.0" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/blog_card.css?ver=1.1.0" rel="stylesheet">
+
     <noscript>
       <style type="text/css">
         [data-aos] {
@@ -400,6 +402,41 @@
 
 <div class="section">
   <div class="container cc-education">
+    <div class="h4 text-center mb-4 title">Articles</div>
+      <!-- <ul>
+        <li><p><a target="_blank" href="{% url 'task' %}">{{ request.get_host }}/create-scheduled-tasks-with-cronjob-celery-and-async-in-python.html</p></li>
+        <li><p>
+          <a target="_blank" href="{% url 'paypal' %}">{{ request.META.HTTP_HOST }}/paypal-payments-integration-guide.html</a>
+        </p></li>
+        <li><p>
+          <a target="_blank" href="{% url 'in_app' %}">{{ request.get_host }}/in-app-payments-integration-guide.html</a>
+        </p></li>
+        <li><p>
+          <a target="_blank" href="{% url 'oauth' %}">{{ request.get_host }}/oauth-and-oauth2-workflow.html</a>
+        </p></li>
+        <li><p>
+          <a target="_blank" href="{% url 'minio' %}">{{ request.get_host }}/amazon-s3-and-minio-object-storage-service.html</a>
+        </p></li>
+        <li><p>
+          <a target="_blank" href="{% url 'unit-test' %}">{{ request.get_host }}/unit-test-selenium-guide.html</a>
+        </p></li>
+        <li><p>
+          <a target="_blank" href="{% url 'pythonanywhere' %}">{{ request.get_host }}/deploy-django-on-pythonanywhere.html</a>
+        </p></li>
+        <li><p>
+          <a target="_blank" href="{% url 'reactnativewithexpo' %}">{{ request.get_host }}/react-native-with-expo.html</a>
+        </p></li>
+        <li><p>
+          <a target="_blank" href="{% url 'publishappandroidgooglestore' %}">{{ request.get_host }}/ish-app-android-google-store.html</a>
+        </p></li>
+      </ul> -->
+        {% include 'blog_card.html' with blogs=blogs  %}
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="container cc-education">
     <div class="h4 text-center mb-4 title">Certification</div>
     <div class="h5 text-center mb-4 title">Core language</div>
 
@@ -541,35 +578,7 @@
   </div>
 </div>
 
-<div class="section">
-  <div class="container cc-education">
-    <div class="h4 text-center mb-4 title">Articles</div>
-      <ul>
-        <li><p><a target="_blank" href="{% url 'task' %}">{{ request.get_host }}/create-scheduled-tasks-with-cronjob-celery-and-async-in-python.html</p></li>
-        <li><p>
-          <a target="_blank" href="{% url 'paypal' %}">{{ request.META.HTTP_HOST }}/paypal-payments-integration-guide.html</a>
-        </p></li>
-        <li><p>
-          <a target="_blank" href="{% url 'in_app' %}">{{ request.get_host }}/in-app-payments-integration-guide.html</a>
-        </p></li>
-        <li><p>
-          <a target="_blank" href="{% url 'oauth' %}">{{ request.get_host }}/oauth-and-oauth2-workflow.html</a>
-        </p></li>
-        <li><p>
-          <a target="_blank" href="{% url 'minio' %}">{{ request.get_host }}/amazon-s3-and-minio-object-storage-service.html</a>
-        </p></li>
-        <li><p>
-          <a target="_blank" href="{% url 'unit-test' %}">{{ request.get_host }}/unit-test-selenium-guide.html</a>
-        </p></li>
-        <li><p>
-          <a target="_blank" href="{% url 'pythonanywhere' %}">{{ request.get_host }}/deploy-django-on-pythonanywhere.html</a>
-        </p></li>
-        <li><p>
-          <a target="_blank" href="{% url 'reactnativewithexpo' %}">{{ request.get_host }}/react-native-with-expo.html</a>
-        </p></li>
-      </ul>
-  </div>
-</div>
+
 
 
 <div class="section" id="skill">

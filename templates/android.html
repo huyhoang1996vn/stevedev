@@ -1,0 +1,83 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              Nowadays, .
+            </p>
+            <br />
+            <p>
+                To begin with, developers <span class="font-weight-bold">don't need macOS</span> to build mobile app. That's one of greatest advantage of Expo because Expo builds projects by its server (expo.dev) I will mention later. Now, first step just install and initate application.
+            </p>
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+                <span data-ty># To create project</span>
+                <span data-ty="input">npx create-expo-app MyExpoApp</span>
+                <span data-ty="input">cd MyExpoApp</span>
+                <span data-ty="input">npx expo start</span>
+            </div>
+
+            <p>
+              Something developers need to be familiar with when working Expo. Firstly, console terminal is responsle for running app on virtual devices and debug.
+            </p>
+            <img src="{{ STATIC_URL }}images/console-expo.png" alt="Image" style="max-width: 750px;"/>
+            <br />
+            <br />
+
+            <p>
+              Secondly, <span class="font-weight-bold">Expo Go</span> will help to run application in real devices. People can install on both App store and android. That's perfect way to debug and test on devices. Expo automatically show it on Expo, which bases on same network. If localhost and device cannot use same network, Expo also support by adding --tunnel in npx expo start. Beside, there is a variety of options: --clear (without cache env),  
+            </p>
+            <br />
+
+            <img src="{{ STATIC_URL }}images/expo-go-android.png" alt="Image" style="max-height: 600px;"/>
+
+            <p>
+              Thirdly, <span class="font-weight-bold">http://expo.dev</span> is dashboard manage project with significant information like: project ID, project slug, build process, creadentails (include keystore), Secrets (environment variable)
+            </p>
+            <img src="{{ STATIC_URL }}images/expodev.png" alt="Image" style="max-width: 750px;"/>
+            <br />
+            <p>
+              To link local project to expo.dev, developer should login and can register if don't have.
+            </p>
+            <div class="termy1" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">npx expo register</span>
+              <span data-ty="input">npx expo login</span>
+            </div>
+            <br />
+
+            <p>
+              Finally, <span class="font-weight-bold">EAS</span> (Expo Application Services) is essential for deployment on GG store and App store. Building Apk or bundle file are handled by eas. Coder also can create new or update existing keystore for app.
+            </p>
+            
+            <div class="termy2" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">eas build:configure</span>
+              <span data-ty="input">eas build -p android --profile preview </span>
+              <span data-ty="input">eas build -p ios --profile preview </span>
+              <span data-ty="input">eas submit -p ios --profile preview </span>
+            </div>
+            <br />
+
+            <p>
+              <span class="font-weight-bold">EAS</span> refers to eas.json in local project, coder define environment, buildType( apk, app-bundle) to deploy on GG play and appleId to submit on App store.
+            </p>
+            <br />
+            <img src="{{ STATIC_URL }}images/expo-eas.png" alt="Image" style="max-width: 750px;max-height: 500px;"/>
+
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

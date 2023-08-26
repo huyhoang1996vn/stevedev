@@ -12,4 +12,5 @@ urlpatterns = [
     path('unit-test-selenium-guide.html', views.unit_test, name='unit-test'),
     path('deploy-django-on-pythonanywhere.html', views.pythonanywhere, name='pythonanywhere'),
     path('react-native-with-expo.html', views.reactnativewithexpo, name='reactnativewithexpo'),
+    path('publish-app-android-google-store.html', views.publishappandroidgooglestore, name='publishappandroidgooglestore'),
 ]

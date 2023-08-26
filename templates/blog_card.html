@@ -1,0 +1,49 @@
+<div class="container blog-card">
+    <div class="row">
+        {% for blog in blogs %}
+        <div class="col-md-4">
+            <a target="_blank" href="{% url blog.url %}">
+                <div class="card" >
+                    <img class="card-img" src="{{ STATIC_URL }}images/{{blog.image}}"alt="Bologna">
+                    <!-- <img src="{{ STATIC_URL }}images/nodejs.png" alt="Avatar" style="width:100%"> -->
+                    <!-- <div class="card-img-overlay">
+                        <a target="_blank" href="{% url 'task' %}" class="btn btn-light btn-sm">Cooking</a>
+                    </div> -->
+                    <div class="card-body">
+                        <h4 class="card-title">{{blog.title}}</h4>
+                        <p class="card-text">{{blog.desc}}</p>
+                        <a target="_blank" href="{% url 'task' %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+        <!-- <div class="col-md-4">
+            <div class="card">
+                <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/pasta.jpg" alt="Bologna">
+                <div class="card-body">
+                    <h4 class="card-title">Pasta with Prosciutto</h4>
+                    <p class="card-text">I love quick, simple pasta dishes, and this is one of my favorite.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/pasta.jpg" alt="Bologna">
+                <div class="card-body">
+                    <h4 class="card-title">Pasta with Prosciutto</h4>
+                    <p class="card-text">I love quick, simple pasta dishes, and this is one of my favorite.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div> -->
+
+
+      </div>
+    </div>
+  </div>
+
+
+  
