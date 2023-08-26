@@ -11,5 +11,5 @@ urlpatterns = [
     path('amazon-s3-and-minio-object-storage-service.html', views.minio, name='minio'),
     path('unit-test-selenium-guide.html', views.unit_test, name='unit-test'),
     path('deploy-django-on-pythonanywhere.html', views.pythonanywhere, name='pythonanywhere'),
-
+    path('react-native-with-expo.html', views.reactnativewithexpo, name='reactnativewithexpo'),
 ]

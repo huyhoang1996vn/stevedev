@@ -28,3 +28,7 @@ def unit_test(request):
 
 def pythonanywhere(request):
     return render(request, 'pythonanywhere.html', {"title_pager": "Deploy Django on Pythonanywhere Guide", "author": "by Steve Nguyen"})
+
+
+def reactnativewithexpo(request):
+    return render(request, 'reactnativewithexpo.html', {"title_pager": "Build React Native application using Expo", "author": "by Steve Nguyen"})
