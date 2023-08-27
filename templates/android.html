@@ -13,65 +13,57 @@
         <div class="col-lg-12 col-md-12">
           <div class="card-body">
             <p>
-              Nowadays, .
+              Publishment application on Google play often require many process so that developers sepnd time reading documents. From my experiences, no matter which teachnoligies using, publishment always has general workflow.
             </p>
             <br />
-            <p>
-                To begin with, developers <span class="font-weight-bold">don't need macOS</span> to build mobile app. That's one of greatest advantage of Expo because Expo builds projects by its server (expo.dev) I will mention later. Now, first step just install and initate application.
-            </p>
-            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-                <span data-ty># To create project</span>
-                <span data-ty="input">npx create-expo-app MyExpoApp</span>
-                <span data-ty="input">cd MyExpoApp</span>
-                <span data-ty="input">npx expo start</span>
-            </div>
 
             <p>
-              Something developers need to be familiar with when working Expo. Firstly, console terminal is responsle for running app on virtual devices and debug.
+                To begin with, when working on local, coder often build file debug Apk with default key and debug flag enabled. However, publishing on Google play need release Apk or bundle file with specific key known as keystore.
             </p>
-            <img src="{{ STATIC_URL }}images/console-expo.png" alt="Image" style="max-width: 750px;"/>
+            <img src="{{ STATIC_URL }}images/keystore.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
             <br />
             <br />
 
             <p>
-              Secondly, <span class="font-weight-bold">Expo Go</span> will help to run application in real devices. People can install on both App store and android. That's perfect way to debug and test on devices. Expo automatically show it on Expo, which bases on same network. If localhost and device cannot use same network, Expo also support by adding --tunnel in npx expo start. Beside, there is a variety of options: --clear (without cache env),  
+              Developers create upload key (keystore) by themself, sometime create by Android studio or ternimal. Keyalias, key store password and key password need to store to deploy on Google next time.
             </p>
+            <img src="{{ STATIC_URL }}images/newkey.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
             <br />
-
-            <img src="{{ STATIC_URL }}images/expo-go-android.png" alt="Image" style="max-height: 600px;"/>
-
-            <p>
-              Thirdly, <span class="font-weight-bold">http://expo.dev</span> is dashboard manage project with significant information like: project ID, project slug, build process, creadentails (include keystore), Secrets (environment variable)
-            </p>
-            <img src="{{ STATIC_URL }}images/expodev.png" alt="Image" style="max-width: 750px;"/>
             <br />
             <p>
-              To link local project to expo.dev, developer should login and can register if don't have.
+              Expo store Key and password in expo.dev
             </p>
-            <div class="termy1" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-              <span data-ty="input">npx expo register</span>
-              <span data-ty="input">npx expo login</span>
-            </div>
+            <img src="{{ STATIC_URL }}images/keystore-expo.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <p>
+              React navtive declare Key and password in this file
+            </p>
+            <img src="{{ STATIC_URL }}images/keystore-native.jpeg" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
             <br />
 
             <p>
-              Finally, <span class="font-weight-bold">EAS</span> (Expo Application Services) is essential for deployment on GG store and App store. Building Apk or bundle file are handled by eas. Coder also can create new or update existing keystore for app.
+              When create release apk or bundle file (aab), Application signed with upload key. At first time, coder upload application on Google play, Google generate App signing key which only matchs to upload key of Application. So that, only application signed with this upload key is valid.
             </p>
+            <br />
+
+            <p>
             
-            <div class="termy2" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-              <span data-ty="input">eas build:configure</span>
-              <span data-ty="input">eas build -p android --profile preview </span>
-              <span data-ty="input">eas build -p ios --profile preview </span>
-              <span data-ty="input">eas submit -p ios --profile preview </span>
-            </div>
-            <br />
+              However, some old application which nobody maintain or take care uaually have no keystore. Fortunately, Google support update new keystore by fill <a target="_blank" href="https://support.google.com/googleplay/android-developer/contact/key?hl=en&authuser=4">this form</a> and attach certificattion of old key on Google play.
+            </p>
 
             <p>
-              <span class="font-weight-bold">EAS</span> refers to eas.json in local project, coder define environment, buildType( apk, app-bundle) to deploy on GG play and appleId to submit on App store.
+              Just waiting Google reply by mail then follow their steps.
             </p>
-            <br />
-            <img src="{{ STATIC_URL }}images/expo-eas.png" alt="Image" style="max-width: 750px;max-height: 500px;"/>
-
+            <p>
+              Google store have lots of environments, developers need to distinguish between them to suit with goals
+            </p>
+            <ul>
+              <li><p>Internal testing: The app is not visible to the general public on Google Play. The app is only available to a list of people you manually set - you add their emails, and they get an invitation.</p></li>
+              <li><p>Closed testing: Same as Internal testing (not publicly visible, has an allow-list), but you get a Google report. Google will test your app and give you feedback.</p></li>
+              <li><p>Open testing: Visible to the general public on Google Play, but with a "Pre-release" warning. People can review the app, but the reviews are only visible to you. </p></li>
+              <li><p>Production: Visible to the general public. User reviews are public.</p></li>
+            </ul>
             <p></p>
           </div>
         </div>
