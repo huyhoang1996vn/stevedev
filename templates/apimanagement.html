@@ -1,0 +1,63 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              Nowadays, developers are the same page that micro services is an approach for projects having quit complicated business with mayny service. To adapt and coordinate requests to services, api gateway mananagement is the most effective currently. However, inspectment is not evident specially in cloud system like azure.
+              Let get down the business, I will intruct how to trace requests in api gateway management from my perspective.  
+            </p>
+            <br />
+            <p>All developers need are work on portal azure. to create a API gate managemen, I call it a day. Imagine that we have Api mananagement already interact with fumction app but it does not work, the request can not go to function app. First and foremost, I debug the Api mananagement.
+
+            </p>
+
+            <img src="{{ STATIC_URL }}images/api-management.png" alt="management" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              We can send the message and inpect the log but no many information showed in this. I try out to another method that is trace request. To enable this, we have to set up in subcription. 
+            </p>
+            <img src="{{ STATIC_URL }}images/subscription.png" alt="subcription" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              Come back and trace the request, we see the details were devided into 4 part.
+            </p>
+            
+            <p>
+              <ul>
+                <li><p>Inbound - Shows the original request API Management received from the caller and the policies applied to the request. For example, if you added policies in Tutorial: Transform and protect your API, they'll appear here.</p></li>
+                <li><p>Backend - Shows the requests API Management sent to the API backend and the response it received.</p></li>
+                <li><p>Outbound - Shows the policies applied to the response before sending back to the caller.</p></li>
+                <li><p>On error - Shows the errors that occurred during the processing of the request and the policies applied to the errors.</p></li>
+              </ul>
+            </p>
+            <img src="{{ STATIC_URL }}images/response-trace.png" alt="response-trace" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            
+            <p>
+              In additon, we can install extensions in vscode to debug clearly but need many steps to configutations. This extension is really helpful with some hard stuffs in api management like config policies, test locally, debug realtime,... However, our scope is just debug so tracing request is sufficient.
+            </p>
+            <img src="{{ STATIC_URL }}images/debug.webp" alt="response-trace" style="max-width: 750px;max-height: 600px;"/>
+
+
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

@@ -13,4 +13,6 @@ urlpatterns = [
     path('deploy-django-on-pythonanywhere.html', views.pythonanywhere, name='pythonanywhere'),
     path('react-native-with-expo.html', views.reactnativewithexpo, name='reactnativewithexpo'),
     path('publish-app-android-google-store.html', views.publishappandroidgooglestore, name='publishappandroidgooglestore'),
+    path('debug-in-api-management-azure.html', views.apimanagement, name='apimanagement'),
+
 ]
