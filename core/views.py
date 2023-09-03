@@ -10,6 +10,7 @@ def index(request):
         {"image": "publish.jpeg", "title": "Publish android application to Google", "desc":"Publishment application to Google play often require many process.", "url": "publishappandroidgooglestore"},
         {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is not only for dev ops.", "url": "pythonanywhere"},
         {"image": "management.png", "title": "Debug in API Management Azure", "desc":"How to trace requests in api gateway management.", "url": "apimanagement"},
+        {"image": "appservice.png", "title": "Azure App Service Guide", "desc":"Cloud service helps developers so munch in deployment.", "url": "appservice"},
         {"image": "test.png", "title": "Unit Test And Selenium Guide", "desc":"Testing is a necessary part of the development process but not all.", "url": "unit-test"},
         {"image": "minio.jpeg", "title": "Amazon S3 And Minio Object Storage Service", "desc":"Object storage service is more popular for several reasons.", "url": "minio"},
         {"image": "oath2.png", "title": "OAuth And OAuth2 Workflow", "desc":"OAuth (Open Authorization) is an open standard for authentication and authorization.", "url": "oauth"},
@@ -50,3 +51,6 @@ def publishappandroidgooglestore(request):
 
 def apimanagement(request):
     return render(request, 'apimanagement.html', {"title_pager": "Publish application on Google play store", "author": "by Steve Nguyen"})   
+
+def appservice(request):
+    return render(request, 'appservice.html', {"title_pager": "Explore Azure App Service", "author": "by Steve Nguyen"})       

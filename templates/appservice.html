@@ -1,0 +1,63 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              No doubt that Cloud service helps developers so munch in deployment. One of the most effective serices is App Serivce with features like scale automation, available interaction with mysql and webJobs, easy to deploy by VSCode... Now, I will instruct to create an app service on portal.
+            </p>
+            <br />
+            <br />
+            <p>
+                First of all, App serivce supports 3 types: Web app, static Web app and Web app and database. For my circumstand, I use web app because my app use spllite (Database store in file). Coder have to define the subdomain (can config custom domain later). I prefer Code and Linux in instance detail because I will clone my code from repository and I get familiar with terminals in linux more than window.
+            </p>
+            <img src="{{ STATIC_URL }}images/appservice1.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <br />
+
+            <p>
+                Next step, developers have to enabled Github Action to Appservice automatically clone new code and build them on machine. Then, we authorize github account. We also can custom reposotiry if don't use github. 
+            </p>
+            <br />
+            <br />
+            <img src="{{ STATIC_URL }}images/appservice2.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+                The rest steps I use default configurations. As result, we get appservice successfully
+            </p>
+            <img src="{{ STATIC_URL }}images/appservice4.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+                The important thing when developers maintaince an application is logging. Fortunately, Azure App service supports log system is log stream.
+            </p>
+            <img src="{{ STATIC_URL }}images/appservice3.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+                However, we can access to machine app service by SSH to see logs files.
+            </p>
+            <img src="{{ STATIC_URL }}images/appservice5.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}
