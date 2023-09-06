@@ -50,7 +50,7 @@ def publishappandroidgooglestore(request):
     return render(request, 'android.html', {"title_pager": "Publish application on Google play store", "author": "by Steve Nguyen"})    
 
 def apimanagement(request):
-    return render(request, 'apimanagement.html', {"title_pager": "Publish application on Google play store", "author": "by Steve Nguyen"})   
+    return render(request, 'apimanagement.html', {"title_pager": "Debug in API Management Azure", "author": "by Steve Nguyen"})   
 
 def appservice(request):
     return render(request, 'appservice.html', {"title_pager": "Explore Azure App Service", "author": "by Steve Nguyen"})       
