@@ -8,6 +8,7 @@ def index(request):
     blogs = [
         {"image": "expo.jpeg", "title": "Build React Native application using Expo", "desc":"Developers don't need macOS to build mobile app.", "url": "reactnativewithexpo"},
         {"image": "publish.jpeg", "title": "Publish android application to Google", "desc":"Publishment application to Google play often require many process.", "url": "publishappandroidgooglestore"},
+        {"image": "appstore.jpeg", "title": "Publish application to App Store", "desc":"IOS application is indispensable part of mobile project.", "url": "appstore"},
         {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is not only for dev ops.", "url": "pythonanywhere"},
         {"image": "management.png", "title": "Debug in API Management Azure", "desc":"How to trace requests in api gateway management.", "url": "apimanagement"},
         {"image": "appservice.png", "title": "Azure App Service Guide", "desc":"Cloud service helps developers so munch in deployment.", "url": "appservice"},
@@ -54,3 +55,6 @@ def apimanagement(request):
 
 def appservice(request):
     return render(request, 'appservice.html', {"title_pager": "Explore Azure App Service", "author": "by Steve Nguyen"})       
+
+def appstore(request):
+    return render(request, 'appstore.html', {"title_pager": "Publish application on AppStore", "author": "by Steve Nguyen"})           

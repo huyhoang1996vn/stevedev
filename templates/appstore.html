@@ -1,0 +1,68 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+             Currently, IOS application is indispensable part of mobile project because of giant users in this platform. Normally, publish and development application require macos (minus expo), coder will work on xcode. Now I instruct to publish an application on App store by xcode (If you prefer expo can refer this tutorial).
+            </p>
+            <br />
+            <br />
+            <p>
+              First of all, codeer have to know tools to develop in IOS react native. Cocoapods helps us to manage library for Swift and C in mobile native, it looks like npm for JavaScript. All behaviors and libraries are list in Podfile. We can link package in React native with Cocoapods by terminal
+              react-native link. 
+            </p>
+
+            <p>
+            Starting with version 0.60 React Native provides auto-linking, that means coder no need to link manually. 
+            </p>
+            <p>
+              In development, we can run or debug by 2 way. First by terminal
+            </p>
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">npx react-native run-ios --simulator="iphone 12"</span>
+            </div>
+            <p>Second by xcode. To do that, coder open project by double click in .xcworkspace file, then xcode will automatically load project. At first time open, we have to login with apple account, which will helps us link to app store</p>
+            <img src="{{ STATIC_URL }}images/xcode1.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              When done development, we will try to deploy on App store. Before that, coder need to deploy on testflight, it is testing environment of Apple
+            </p>
+            <img src="{{ STATIC_URL }}images/testflight.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              To upload on testflight, we archive a version for current code, we can clean before handle.
+            </p>
+            <img src="{{ STATIC_URL }}images/archive.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+
+            <p>It will take some munites. When done, we access to organizer to see archive we already done. All archives will show in here after each building</p>
+            <img src="{{ STATIC_URL }}images/archive2.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+
+            <p>Click on Distribute App to upload the archive into testflight. Just await some munites to Apple finish. When done, go to testflight. If we dont declare ITSEncryptionExportComplianceCode, we need to set up in testlight. Atfer that, App is ready on testflight. Information of App are declared in info.plist</p>
+            <p>When app are already available on testflight, we can invite user to project to them can install app via testflight. Everything is done, we can see app in testfligt on mobile.</p>
+            <p></p>
+            <img src="{{ STATIC_URL }}images/app.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}
