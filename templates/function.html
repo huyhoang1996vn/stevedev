@@ -1,0 +1,92 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              Backend developers take a portion or all of responsibility in deployment. Traditionally, we choose plaftform, set up version of language, 
+              install libraries, install web server and so on. 
+            </p>
+            <p>
+            Day by day, developers often face problems about deployment, which even takes more time than coding. Serverless currently is helpful tools for developers because advantages like: low Cost, automation scale, ... coder no need to take care about operation system. For small project, we don't need a devops because all that base on serverless.
+            </p>
+            <br />
+            <br />
+            <img src="{{ STATIC_URL }}images/function1.jpeg" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              On Premises, we have to pay for rent a whole machine althrough we just run a small application for some customers. Instead of, Software as a Service (SaaS) can provide the least possible cost which depends on concept (we pay what we use). Function app is an instance of SaaS.
+            </p>
+            <p>
+            First, we should install azure extension in vscode. We will get lots of features vscode supports to work on azure smoothly. Then, we create function in local via vscode
+            </p>
+            <img src="{{ STATIC_URL }}images/func-create.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              VScode automatically initiate source code. The rest, we can write code immediately.
+            </p>
+            <img src="{{ STATIC_URL }}images/func-resource.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              We can test function locally by terminal via <a target="_blank" href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local">Azure Functions Core Tools</a>
+            </p>
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">brew tap azure/functions</span>
+              <span data-ty="input">brew install azure-functions-core-tools@4</span>
+              <span data-ty="input">npm i -g azure-functions-core-tools@4 --unsafe-perm true</span>
+              <span data-ty="input">func start</span>
+            </div>
+            <br />
+
+            <p>
+              After coder finish development locally, next step will be deployment. We login to azure portal and create a function app name func-testing-api
+            </p>
+
+            <img src="{{ STATIC_URL }}images/func-azure.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+
+            <p>
+              After success, we can see the new created function in vscode. It's ready to deploy. 
+            </p>
+            <img src="{{ STATIC_URL }}images/func-deploy.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              Let's check on azure portal. we success to deploy on function app with function named api-get-name
+            </p>
+            <img src="{{ STATIC_URL }}images/func-portal.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              The url production of function is in details of function. We can access now.
+            </p>
+            <img src="{{ STATIC_URL }}images/func-url.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p></p>
+            <img src="{{ STATIC_URL }}images/func-final.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>Sooner or later, serverless will achiveve software market because of its convenience.</p>
+
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

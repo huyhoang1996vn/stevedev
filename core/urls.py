@@ -16,4 +16,5 @@ urlpatterns = [
     path('debug-in-api-management-azure.html', views.apimanagement, name='apimanagement'),
     path('app-service-azure.html', views.appservice, name='appservice'),
     path('publish-application-app-store.html', views.appstore, name='appstore'),
+    path('function-app-azure.html', views.function, name='function'),
 ]
