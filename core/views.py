@@ -12,6 +12,7 @@ def index(request):
         {"image": "management.png", "title": "Debug in API Management Azure", "desc":"How to trace requests in api gateway management.", "url": "apimanagement"},
         {"image": "appservice.png", "title": "Azure App Service Guide", "desc":"Cloud service helps developers so munch in deployment.", "url": "appservice"},
         {"image": "function.png", "title": "Function app serverless on Azure", "desc":"Traditionally, we choose plaftform, set up version language, install libraries..", "url": "function"},
+        {"image": "aws-lambda.webp", "title": "AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "lambda_function"},
         {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is not only for dev ops.", "url": "pythonanywhere"},
         {"image": "test.png", "title": "Unit Test And Selenium Guide", "desc":"Testing is a necessary part of the development process but not all.", "url": "unit-test"},
         {"image": "minio.jpeg", "title": "Amazon S3 And Minio Object Storage Service", "desc":"Object storage service is more popular for several reasons.", "url": "minio"},
@@ -62,3 +63,6 @@ def appstore(request):
 
 def function(request):
     return render(request, 'function.html', {"title_pager": "Function app serverless on Azure", "author": "by Steve Nguyen"})             
+
+def lambda_function(request):
+    return render(request, 'lambda_function.html', {"title_pager": "Lambda function AWS", "author": "by Steve Nguyen"})                 

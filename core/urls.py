@@ -17,4 +17,5 @@ urlpatterns = [
     path('app-service-azure.html', views.appservice, name='appservice'),
     path('publish-application-app-store.html', views.appstore, name='appstore'),
     path('function-app-azure.html', views.function, name='function'),
+    path('lambda-function-aws.html', views.lambda_function, name='lambda_function'),
 ]

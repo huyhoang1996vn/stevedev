@@ -1,0 +1,88 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              It is no coincidence that AWS is best cloud service for developer with 60% or 70% in market. AWS has varioty of services which coders admit that can not use and understand all. However, lambda function is the most popular technique every developers all know. Now, I'm going to share my experiance in contribute lambda function by python. 
+            </p>
+            <p>
+              First of all, IAM is concept we need to know because It apply for all services. <strong>IAM (Identity and Access Management)</strong> is a service helps us securely control access to AWS resources. When we create AWS account, AWS provide a account root user but we only use it for special task. Normally, we use IAM to build and develop service.
+            </p>
+            <p>
+              Now, we create an IAM user then get access key and secret key. We isntall AWS CLI following <a target="_blank" href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">document</a>
+            </p>
+
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">aws configure</span>
+              <span data-ty># AWS Access Key ID [None]: ExampleAccessKey</span>
+              <span data-ty># AWS Secret Access Key [None]: ExampleSecretKey</span>
+              <span data-ty># Default region name [None]: us-west-2</span>
+            </div>
+            <br />
+            <p>We can use --profile to add more IAM user</p>
+            <p>
+              Coders can develope directly in cloud via aws portal but it's inconvenience for debug and need to deploy manually when code changes.
+            </p>
+
+            <img src="{{ STATIC_URL }}images/aws-portal.jpeg" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <br />
+
+            <p>
+              Another way I prefer is runing locally by <strong>SAM (Serverless Application Model)</strong>. SAM is open source support to work on AWS such as run locally, deployment, interact with <strong>CloudFormation</strong> and so on. Basiclly, SAM description resources exactly in YAML template. So that, we can reuse and easier manage resources.
+              
+            </p>
+            <br />
+
+            <img src="{{ STATIC_URL }}images/aws-yaml.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>Let's install SAM CLI.</p>
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">brew tap aws/tap</span>
+              <span data-ty="input">brew install aws-sam-cli</span>
+              <span data-ty="input">sam local start-api -p 3000 --template=aws_cfts/sqa-lambdas.yaml --profile developer</span>
+            </div>
+            <br />
+            <br />
+            <img src="{{ STATIC_URL }}images/aws-sam.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            <p>
+              We will explain SAM more in another topic. Now we deploy resources to AWS by terminal. Remember, AWS SAM base on <strong>CloudFormation</strong> so that we can interact with stack by argument --stack-name
+            </p>
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">
+                sam deploy --template-file aws_cfts/sqa-lambdas.yaml --stack-name sqa-lambdas --resolve-s3 --profile developer --confirm-changeset</span>
+            </div>
+            <br />
+            <br />
+
+            <p>
+              Developers can see log in function by Cloudwatch.
+            </p>
+            <img src="{{ STATIC_URL }}images/aws-watch.jpeg" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+
+            <p></p>
+            <p></p>
+
+
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}
