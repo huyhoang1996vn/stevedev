@@ -13,9 +13,10 @@ def index(request):
         {"image": "appservice.png", "title": "Azure App Service Guide", "desc":"Cloud service helps developers so munch in deployment.", "url": "appservice"},
         {"image": "function.png", "title": "Function app serverless on Azure", "desc":"Traditionally, we choose plaftform, set up version language, install libraries..", "url": "function"},
         {"image": "aws-lambda.webp", "title": "AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "lambda_function"},
-        {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is not only for dev ops.", "url": "pythonanywhere"},
+        {"image": "layer2.jpeg", "title": "Install Boto3 in layer AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "boto3"},
+        {"image": "minio.jpeg", "title": "Minio Object Storage Service (like Amazon S3)", "desc":"Object storage service is more popular for several reasons.", "url": "minio"},
         {"image": "test.png", "title": "Unit Test And Selenium Guide", "desc":"Testing is a necessary part of the development process but not all.", "url": "unit-test"},
-        {"image": "minio.jpeg", "title": "Amazon S3 And Minio Object Storage Service", "desc":"Object storage service is more popular for several reasons.", "url": "minio"},
+        {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is not only for dev ops.", "url": "pythonanywhere"},
         {"image": "oath2.png", "title": "OAuth And OAuth2 Workflow", "desc":"OAuth (Open Authorization) is an open standard for authentication and authorization.", "url": "oauth"},
         {"image": "cronjob.png", "title": "Create scheduled tasks with cronjob, celery and async in python", "desc":"Cronjob 's Ubuntu system is a solution I got exposed to at first.", "url": "task"},
         {"image": "paypal.png", "title": "PayPal Payment Integration Guide In Service API", "desc":"They are webhook paypal and api payment paypal.", "url": "paypal"},
@@ -37,7 +38,7 @@ def oauth(request):
     return render(request, 'oauth.html', {"title_pager": "OAuth And OAuth2 Workflow", "author": "by Steve Nguyen"})
 
 def minio(request):
-    return render(request, 'minio.html', {"title_pager": "Amazon S3 And Minio Object Storage Service", "author": "by Steve Nguyen"})
+    return render(request, 'minio.html', {"title_pager": "Minio Object Storage Service (like Amazon S3)", "author": "by Steve Nguyen"})
 
 def unit_test(request):
     return render(request, 'unit_test.html', {"title_pager": "Unit Test And Selenium Guide", "author": "by Steve Nguyen"})
@@ -65,4 +66,7 @@ def function(request):
     return render(request, 'function.html', {"title_pager": "Function app serverless on Azure", "author": "by Steve Nguyen"})             
 
 def lambda_function(request):
-    return render(request, 'lambda_function.html', {"title_pager": "Lambda function AWS", "author": "by Steve Nguyen"})                 
+    return render(request, 'lambda_function.html', {"title_pager": "Lambda function AWS", "author": "by Steve Nguyen"})          
+
+def boto3(request):
+    return render(request, 'boto3.html', {"title_pager": "Install Boto3 in layer AWS lambda function", "author": "by Steve Nguyen"})              

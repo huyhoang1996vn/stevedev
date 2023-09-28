@@ -1,0 +1,107 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              Boto3 is Software Development Kit (SDK) python allows developers acccess to AWS resources in code. Boto3
+              relies on AWS profile in local (Ex: ~/.aws/credentials) to connect with AWS.
+            </p>
+
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">pip install boto3</span>
+            </div>
+            <br />
+            <br />
+            <p>
+              Often time we interact with dynamodb, cognito, s3 and so on. We use client, resource or session method in boto3, which can make people confuse about when we use which one and different between them. 
+            </p>
+            <br />
+            <br />
+            <pre>
+            <code>
+              <code class="highlight">import boto3</code>
+              def get_user_profile(username, key='username'):
+                  <code class="highlight">db = boto3.resource('dynamodb')</code>
+                  table = db.Table(DB_USERS_TABLE)
+                  response = table.query(IndexName=f'{key}-Id', KeyConditionExpression=Key(f'{key}').eq(username)).get("Items")
+                  return response[0]
+
+
+              def authenticate_and_get_token(username: str, password: str) -> str:
+                  <code class="highlight">client = boto3.client('cognito-idp')</code>
+                  resp = client.admin_initiate_auth(
+                      UserPoolId=USER_POOL_ID,
+                      ClientId=CLIENT_ID,
+                      AuthFlow='ADMIN_NO_SRP_AUTH',
+                      AuthParameters={
+                          "USERNAME": "username",
+                          "PASSWORD": "password"
+                      }
+                  )
+                  return resp
+            </code>
+          </pre>
+
+          <p>
+            Actually, Client and Resource both are class to make AWS service request. Resource has higher level than Client because of building on object-oriented API while Client is just normal class. However, it is not meant to Resource better than Client, several serivces are not supported by Resource. Session is large concept, it allows us create client or resource and store configure information during use boto3.
+          </p>
+            <br />
+            <br />
+
+            <img src="{{ STATIC_URL }}images/boto3.jpeg" alt="Image" style="max-width: 750px;max-height: 600px;" />
+            <br />
+            <br />
+            <br />
+            <p>
+              Severely, boto3 it not a available libtary in AWS lambda function. Developers need to install boto3 in layer. Layer simplely is a place to install library, package which lambda function is not on hand. Technically, It is a zip file archive that contains supplementary code or data. Layers usually contain library dependencies, a custom runtime, or configuration files.
+            </p>
+            <p>We install boto3 in folder.</p>
+            <br />
+
+            <div class="termy2" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">pip install boto3 -t _layers/python</span>
+            </div>
+            <br />
+            
+            <p>Then declare in SAM to push on lambda function.</p>
+            <br />
+
+            <img src="{{ STATIC_URL }}images/aws-layer.jpeg" alt="Image" style="max-width: 750px;max-height: 600px;" />
+            <br />
+            <br />
+            <br />
+        
+            <div class="termy1" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">sam deploy --template-file aws_cfts/sqa-lambdas.yaml --stack-name sqa-lambdas --resolve-s3 --profile developer --confirm-changeset</span>
+            </div>
+            <br />
+            <br />
+            <p>Result.</p>
+            <img src="{{ STATIC_URL }}images/aws-layer-result.jpeg" alt="Image" style="max-width: 750px;max-height: 600px;" />
+            <br />
+            <br />
+            <p>
+              Compare to azure function, It's quite different, all function in function app can use same pacakges that means we jsut declare library in requirement.txt (for python) or package.json (for node) then Azure automatically install them. All function in function app can use these libraries
+            </p>
+            <p></p>
+
+            <!-- <strong>IAM (Identity and Access Management)</strong>  -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

@@ -18,4 +18,5 @@ urlpatterns = [
     path('publish-application-app-store.html', views.appstore, name='appstore'),
     path('function-app-azure.html', views.function, name='function'),
     path('lambda-function-aws.html', views.lambda_function, name='lambda_function'),
+    path('install-boto3-layer-in-aws.html', views.boto3, name='boto3'),
 ]
