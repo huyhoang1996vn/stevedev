@@ -1,0 +1,76 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+                Promise is a Javascript object that represents function and its results. Promise helps us handle multiple async function and what will happen after async sunction finish. Promise has 3 main state:
+            </p>
+            <ul>
+                <li><p>Pending: Initial State</p></li>
+                <li><p>Resolved: After the operation completed successfully.</p></li>
+                <li><p>Rejected: If the operation had error.</p></li>
+            </ul>
+            <p>
+                Promise provide methods to carry out the result of function: then() and catch().
+            </p>
+            <ul>
+                <li><p>then(): Kick off when fulfilled or rejected. Often time, people use it when fulfilled.</p></li>
+                <li><p>catch() [optional]: Kick off when rejected.</p></li>
+            </ul>
+            <p>
+                Async/Await is built on top of Promise, This can be more easier and legible than promise. We can sort async functions like sync functions. 
+            </p>
+            <br />
+
+            <img src="{{ STATIC_URL }}images/promise-diff.png" alt="Image" style="max-width: 750px;max-height: 600px;" />
+            <br />
+            <br />
+            <br />
+
+            <p>Because this blog is too short, I wanna introduce another concepts in javascript.</p>
+            <p>
+                Hoisting in javascript is default behavior which moves all the variable and function declarations are moved on top. Remember, just declarations is moved, changing and assign value are not moved.
+                To avoid hoisting, you can run javascript in strict mode by using “use strict”.
+            </p>
+            <br />
+            <br />
+            <img src="{{ STATIC_URL }}images/js-hoisting.png" alt="Image" style="max-width: 750px;max-height: 600px;" />
+            <br />
+            <br />
+
+
+            <p>
+                Immediately invoked function expressions (IIFE) is a function that is called immediately after defined. Now, we no need to create  specified function for simple operation. 
+            </p>
+            <br />
+            <br />
+
+            <pre>
+                <code>
+                    var i = 0;
+                    console.log('Before: ', i); // show 0
+                    (function () {
+                        i++;
+                    })();
+                    console.log('After: ', i); // show 1
+                </code>
+              </pre>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

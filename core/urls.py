@@ -19,4 +19,5 @@ urlpatterns = [
     path('function-app-azure.html', views.function, name='function'),
     path('lambda-function-aws.html', views.lambda_function, name='lambda_function'),
     path('install-boto3-layer-in-aws.html', views.boto3, name='boto3'),
+    path('promise-js.html', views.promise, name='promise'),
 ]

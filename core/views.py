@@ -20,6 +20,7 @@ def index(request):
         {"image": "oath2.png", "title": "OAuth And OAuth2 Workflow", "desc":"OAuth (Open Authorization) is an open standard for authentication and authorization.", "url": "oauth"},
         {"image": "cronjob.png", "title": "Create scheduled tasks with cronjob, celery and async in python", "desc":"Cronjob 's Ubuntu system is a solution I got exposed to at first.", "url": "task"},
         {"image": "paypal.png", "title": "PayPal Payment Integration Guide In Service API", "desc":"They are webhook paypal and api payment paypal.", "url": "paypal"},
+        {"image": "promise.png", "title": "Promise Vs Async/Await in javascript", "desc":"How do differences in Promise chains and Async/Await.", "url": "promise"},
         {"image": "in-app.jpeg", "title": "In-App Payment Guide In Service API", "desc":"In-App payment is available and supported by Apple and Google.", "url": "in_app"}
     ]
     return render(request, 'index.html', {"blogs": blogs})
@@ -70,3 +71,6 @@ def lambda_function(request):
 
 def boto3(request):
     return render(request, 'boto3.html', {"title_pager": "Install Boto3 in layer AWS lambda function", "author": "by Steve Nguyen"})              
+
+def promise(request):
+    return render(request, 'promise.html', {"title_pager": "Promise Vs Async/Await in javascript", "author": "by Steve Nguyen"})        
