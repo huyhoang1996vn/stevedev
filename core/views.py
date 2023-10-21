@@ -15,8 +15,9 @@ def index(request):
         {"image": "aws-lambda.webp", "title": "AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "lambda_function"},
         {"image": "layer2.jpeg", "title": "Install Boto3 in layer AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "boto3"},
         {"image": "minio.jpeg", "title": "Minio Object Storage Service (like Amazon S3)", "desc":"Object storage service is more popular for several reasons.", "url": "minio"},
-        {"image": "test.png", "title": "Unit Test And Selenium Guide", "desc":"Testing is a necessary part of the development process but not all.", "url": "unit-test"},
         {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is not only for dev ops.", "url": "pythonanywhere"},
+        {"image": "migrations.jpeg", "title": "Migrations in django", "desc":"Migrations are Django’s way of applying changes you make to your models.", "url": "migration"},
+        {"image": "test.png", "title": "Unit Test And Selenium Guide", "desc":"Testing is a necessary part of the development process but not all.", "url": "unit-test"},
         {"image": "oath2.png", "title": "OAuth And OAuth2 Workflow", "desc":"OAuth (Open Authorization) is an open standard for authentication and authorization.", "url": "oauth"},
         {"image": "cronjob.png", "title": "Create scheduled tasks with cronjob, celery and async in python", "desc":"Cronjob 's Ubuntu system is a solution I got exposed to at first.", "url": "task"},
         {"image": "paypal.png", "title": "PayPal Payment Integration Guide In Service API", "desc":"They are webhook paypal and api payment paypal.", "url": "paypal"},
@@ -74,3 +75,7 @@ def boto3(request):
 
 def promise(request):
     return render(request, 'promise.html', {"title_pager": "Promise Vs Async/Await in javascript", "author": "by Steve Nguyen"})        
+
+def migration(request):
+    return render(request, 'migrations.html', {"title_pager": "Migrations in django", "author": "by Steve Nguyen"})        
+

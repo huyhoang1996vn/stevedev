@@ -1,0 +1,76 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              Migrations is so useful for developer specially django, but sometime we have conflicts. Now, I will explain why have conflicts and way to resolve. 
+            </p>
+            <p>
+                Migrations conflict is same with github conflict when many branch change one thing together.
+                Technically, django invest migrations with same prefix number then require developer to merge them.
+            </p>
+            <p>
+                For example, master branch create model User. After then, branch 1 add field email with migration file: 0002_email.py. At the same time, branch 2 add field avatar with migration file: 0002_avatar.py. Then, we merge 2 branch in master and conflict blow in because of same 0002 in migration file. Fortunately, django support fix conflict completely by this terminal.
+            </p>
+            
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+                <span data-ty="input">python manage.py makemigrations --merge</span>
+            </div>
+            <br />
+
+            <p>
+                0003_merge.py, is created inside the migrations folder by django.
+            </p>
+            <br />
+
+            <p>
+                Another point make confuse in django migration is comeing to null and blank. null is purely database-related in database part, whereas blank is validation-related in django part.
+            </p>
+                <ul>
+                    <li><p>null=False, blank=False: required in all circumstances</p></li>
+                    <li><p>null=True, blank=True: optional in all circumstances</p></li>
+                    <li><p>null=True, blank=False: This means database don't require value (Allow Null in DB) but form require value </p></li>
+                    <li><p>null=False, blank=True: This means database require value (Not Null in DB) but form don't require value</p></li>
+                  </ul>
+            <br />
+            <br />
+
+            <p>
+                Finally, I talk about add not null field in existing model without default value. The problem is django requires default value for existing records in database.
+            </p>
+
+                <img src="{{ STATIC_URL }}images/migrate_warning.png" alt="Image" style="max-width: 750px;max-height: 600px; height: 100px"/>
+                <br />
+                <br />
+
+            <p>
+                I usually bear up by these steps:
+            </p>
+            <ul>
+                <li><p>SET null=True, blank=True</p></li>
+                <li><p>Migrate your database py manage.py makemigrations and py manage.py migrate</p></li>
+                <li><p>Fill data for existing rows by manual migrations. </p></li>
+                <li><p>SET null=False, blank=False</p></li>
+                <li><p>Migrate again</p></li>
+              </ul>
+            <p></p>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

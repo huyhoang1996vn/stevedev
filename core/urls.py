@@ -20,4 +20,5 @@ urlpatterns = [
     path('lambda-function-aws.html', views.lambda_function, name='lambda_function'),
     path('install-boto3-layer-in-aws.html', views.boto3, name='boto3'),
     path('promise-js.html', views.promise, name='promise'),
+    path('migration-django.html', views.migration, name='migration'),
 ]
