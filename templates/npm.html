@@ -1,0 +1,110 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section" id="code">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+              Javascript bring developers up to many concepts because JS always pregresses day by day. All of new things
+              start from common knowedges but no everyone understand, someone even can not distinguish them.
+            </p>
+            <br />
+            <br />
+            <h5><strong>node.js vs express.js</strong></h5>
+            <p>
+              First of all, people frequently confuse between <strong>node.js</strong> and <strong>express.js</strong>.
+              Node.js is runtime environment for executing JavaScript code outside of a browser. It's not a framework or
+              programming language. Express.js is just framework build on node.js
+            </p>
+            <p>
+              That's the reason we can run js file with node terminal
+            </p>
+            <br />
+            <br />
+            <h5><strong>NPM vs YARN</strong></h5>
+            <p>
+              Second, people whether yarn and npm which is better and how they work. <strong>NPM</strong> ( Node package
+              manager ) and <strong>YARN</strong> (Yet Another Resource Negotiator ) are package manager to manage
+              libraries we install in Javascript, they also read package.json then install package in folder
+              node_modules.
+              Yarn came because it has clear ternimation and better performance. One defective thing is YARN need to
+              install by npm while npm is available in Node.js
+              If we start with new project, I suggest using yarn.
+            </p>
+
+            <br />
+            <br />
+            <h5><strong>Install globally vs locally</strong></h5>
+            
+            <p>
+              Talking about install libraries, I want to bring up a concept, install <strong>global</strong> vs
+              <strong>local</strong> in npm package. When developer install
+            </p>
+
+
+            <div class="termy2" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="1000">
+              <span data-ty="input">npm install express</span>
+            </div>
+            <br />
+
+
+            <p>
+              That means a package is installed locally, it is listed under the “dependencies” or “devDependencies”
+              section in the package.json file.
+              Files of express store in node_modules folder of project
+              express only in current project which installed it. We can not use express in another package. Some time,
+              —-save-dev is added for package only use to develop, not required in production like
+            </p>
+            <div class="termy1" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="1000">
+              <span data-ty="input">npm install eslint — save-dev</span>
+            </div>
+            <br />
+
+
+            <p>
+              About global scope, we can inspest where package store by npm root -g. When we install package globally,
+              all codes can use package. However, I suggest we just install package intended to be run from the CLI like
+              nestjs
+            </p>
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="1000">
+              <span data-ty="input">npm i -g @nestjs/cli</span>
+              <span data-ty="input">nest new project-name</span>
+            </div>
+            <br />
+            <br />
+            <br />
+            <h5><strong>NPX</strong></h5>
+            <!-- https://www.section.io/engineering-education/npm-vs-npx/#:~:text=With%20NPX%2C%20you%20can%20run,and%20then%20run%20the%20package. -->
+            <p>
+              Last thing people often mistaken is <strong>NPX</strong> (Node Package eXecute). With NPX, we can execute
+              package without install it. The solution is NPX will create temporary folder in cache to store pacakge
+              binaries. When execution is over, NPX will remove this folder. Of course, if package is existing in local
+              or global, NPX will prefer use available folder instead.
+            </p>
+            <p>
+              The Iconic example exist in react document
+            </p>
+
+            <img src="{{ STATIC_URL }}images/npx.png" alt="Image" style="max-width: 750px;max-height: 600px" />
+
+            <p></p>
+            <p></p>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

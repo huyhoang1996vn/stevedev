@@ -15,13 +15,14 @@ def index(request):
         {"image": "aws-lambda.webp", "title": "AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "lambda_function"},
         {"image": "layer2.jpeg", "title": "Install Boto3 in layer AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "boto3"},
         {"image": "minio.jpeg", "title": "Minio Object Storage Service (like Amazon S3)", "desc":"Object storage service is more popular for several reasons.", "url": "minio"},
-        {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is not only for dev ops.", "url": "pythonanywhere"},
         {"image": "migrations.jpeg", "title": "Migrations in django", "desc":"Migrations are Django’s way of applying changes you make to your models.", "url": "migration"},
-        {"image": "test.png", "title": "Unit Test And Selenium Guide", "desc":"Testing is a necessary part of the development process but not all.", "url": "unit-test"},
+        {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is required process in software.", "url": "pythonanywhere"},
+        {"image": "test.png", "title": "Unit Test And Selenium in python", "desc":"Testing is a necessary part of the development process but not all.", "url": "unit-test"},
+        {"image": "promise.png", "title": "Promise Vs Async/Await in javascript", "desc":"How difference between Promise chains and Async/Await.", "url": "promise"},
+        {"image": "npm.jpeg", "title": "Compare packages in javascript", "desc":"Explain and compare popular concept like npm, yarn and so on.", "url": "concept"},
+        {"image": "cronjob.png", "title": "Cronjob, Celery and Scheduled tasks in python", "desc":"Cronjob is a solution I got exposed to at first.", "url": "task"},
         {"image": "oath2.png", "title": "OAuth And OAuth2 Workflow", "desc":"OAuth (Open Authorization) is an open standard for authentication and authorization.", "url": "oauth"},
-        {"image": "cronjob.png", "title": "Create scheduled tasks with cronjob, celery and async in python", "desc":"Cronjob 's Ubuntu system is a solution I got exposed to at first.", "url": "task"},
         {"image": "paypal.png", "title": "PayPal Payment Integration Guide In Service API", "desc":"They are webhook paypal and api payment paypal.", "url": "paypal"},
-        {"image": "promise.png", "title": "Promise Vs Async/Await in javascript", "desc":"How do differences in Promise chains and Async/Await.", "url": "promise"},
         {"image": "in-app.jpeg", "title": "In-App Payment Guide In Service API", "desc":"In-App payment is available and supported by Apple and Google.", "url": "in_app"}
     ]
     return render(request, 'index.html', {"blogs": blogs})
@@ -78,4 +79,7 @@ def promise(request):
 
 def migration(request):
     return render(request, 'migrations.html', {"title_pager": "Migrations in django", "author": "by Steve Nguyen"})        
+
+def concept(request):
+    return render(request, 'npm.html', {"title_pager": "Compare packages in javascript", "author": "by Steve Nguyen"})        
 

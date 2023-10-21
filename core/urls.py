@@ -21,4 +21,5 @@ urlpatterns = [
     path('install-boto3-layer-in-aws.html', views.boto3, name='boto3'),
     path('promise-js.html', views.promise, name='promise'),
     path('migration-django.html', views.migration, name='migration'),
+    path('compare-packages-javascript.html', views.concept, name='concept'),
 ]
