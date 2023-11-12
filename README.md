@@ -28,6 +28,7 @@ pip3 install -r requirements.txt
 python manage.py createsuperuser --settings=config.local
 # dev/!@#$%^&*
 python manage.py runserver 0:8000 --settings=config.local
+python manage.py makemigrations --settings=config.local
 python manage.py migrate --settings=config.local
 
 uvicorn helio.asgi:application --host 0.0.0.0 --port 8001

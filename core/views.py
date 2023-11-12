@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Post
 
 # Create your views here.
 from django.http import HttpResponse
@@ -82,4 +83,12 @@ def migration(request):
 
 def concept(request):
     return render(request, 'npm.html', {"title_pager": "Compare packages in javascript", "author": "by Steve Nguyen"})        
+
+def junie(request):
+    categories = Post.objects.all().values_list('category', flat=True).distinct()
+    category = request.GET.get('category')
+    if category:
+        post = Post.objects.filter(category=category).order_by('?').first()
+        return render(request, 'junie.html', {"post": post, "categories": categories}) 
+    return render(request, 'junie.html', {"categories": categories, "post": None})        
 
