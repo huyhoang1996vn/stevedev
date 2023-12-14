@@ -18,19 +18,25 @@
             <br />
             <br />
             <p>
-              First of all, codeer have to know tools to develop in IOS react native. Cocoapods helps us to manage library for Swift and C in mobile native, it looks like npm for JavaScript. All behaviors and libraries are list in Podfile. We can link package in React native with Cocoapods by terminal
+              First of all, coders have to know tools to develop in IOS react native. Cocoapods helps us to manage library for Swift and C in mobile native, it looks like npm for JavaScript. All behaviors and libraries are list in Podfile. We can link package in React native with Cocoapods by terminal
               react-native link. 
             </p>
-
+            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+              <span data-ty="input">cd ios</span>
+              <span data-ty="input">pod install</span>
+            </div>
             <p>
             Starting with version 0.60 React Native provides auto-linking, that means coder no need to link manually. 
             </p>
             <p>
               In development, we can run or debug by 2 way. First by terminal
             </p>
-            <div class="termy" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+            <div class="termy1" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
               <span data-ty="input">npx react-native run-ios --simulator="iphone 12"</span>
             </div>
+            <br />
+            <br />
+
             <p>Second by xcode. To do that, coder open project by double click in .xcworkspace file, then xcode will automatically load project. At first time open, we have to login with apple account, which will helps us link to app store</p>
             <img src="{{ STATIC_URL }}images/xcode1.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
             <br />
@@ -42,8 +48,16 @@
             <br />
             <br />
             <p>
+              We config xcode with app by bundle Id.
+            </p>
+            <img src="{{ STATIC_URL }}images/xcode.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+            
+            <p>
               To upload on testflight, we archive a version for current code, we can clean before handle.
             </p>
+            
             <img src="{{ STATIC_URL }}images/archive.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
             <br />
             <br />
@@ -53,8 +67,14 @@
             <br />
             <br />
 
-            <p>Click on Distribute App to upload the archive into testflight. Just await some munites to Apple finish. When done, go to testflight. If we dont declare ITSEncryptionExportComplianceCode, we need to set up in testlight. Atfer that, App is ready on testflight. Information of App are declared in info.plist</p>
-            <p>When app are already available on testflight, we can invite user to project to them can install app via testflight. Everything is done, we can see app in testfligt on mobile.</p>
+            <p>Click on Distribute App to upload the archive into testflight. Just await some munites to Apple finish. When done, go to testflight. If we dont declare ITSEncryptionExportComplianceCode, we need to set up in testlight.</p>
+            
+            <img src="{{ STATIC_URL }}images/distribute.webp" alt="Image" style="max-width: 750px;max-height: 600px;"/>
+            <br />
+            <br />
+
+
+            <p>Atfer that, App is ready on testflight. Information of App are declared in info.plist. When app are already available on testflight, we can invite user to project to them can install app via testflight. Everything is done, we can see app in testfligt on mobile.</p>
             <p></p>
             <img src="{{ STATIC_URL }}images/app.png" alt="Image" style="max-width: 750px;max-height: 600px;"/>
 
