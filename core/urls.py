@@ -22,4 +22,5 @@ urlpatterns = [
     path('promise-js.html', views.promise, name='promise'),
     path('migration-django.html', views.migration, name='migration'),
     path('compare-packages-javascript.html', views.concept, name='concept'),
+    path('azure-devops.html', views.devops, name='devops'),
 ]

@@ -1,0 +1,92 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+                CI/CD (Continuous Integration and Continuous Deployment) is a pratice helps us to deliver applications to customers quickly and safely. In this article, I will show you how to deploy a application to Azure App Service by Azure DevOps.
+                My process will be: Push code to Github -> Create Run pipeline -> Create release with latest code.
+                Fist of all, we need to comprehend the fundamental concepts.
+            </p>
+            <p>
+                <strong>What is Pipeline?</strong>  
+            </p>
+            <p>
+                A pipeline is a set of instructions that can be executed on various agents. It is a collection of jobs that can be executed sequentially or in parallel.
+            </p>
+            <p>
+                <strong>What is Jobs?</strong>
+            </p>
+            <p>
+                A job is a set of steps that execute on the same target. Each job runs on an agent. 
+            
+            <p>
+                <strong>What is Agent?</strong>
+            </p>
+            <p>
+                An agent is a software that is installed on the machines. It is responsible for managing the execution of jobs . The agent is capable of handling one or more jobs depending on the configuration.
+            </p>
+            <p>
+                <strong>What is Agent Pool?</strong>
+            </p>
+            <p>
+                An agent pool is a collection of one or more agents. These agents can be Microsoft-hosted agents or self-hosted agents. If your account is free tier, I advice you use self-hosted agents follow by
+                <a href="https://stackoverflow.com/questions/68405027/how-to-resolve-no-hosted-parallelism-has-been-purchased-or-granted-in-free-tie" target="_blank">this tutorial.</a>
+            </p>
+
+            <p>
+                <strong>What is Artifact?</strong>
+            <p>
+            <p>
+                Artifact is the result or output produced by a build pipeline or a release pipeline, and it can include compiled binaries, executables, libraries, configuration files and so on. 
+                <strong>
+                    User cases:
+                </strong>
+                <ul>
+                    <li>Continuous Integration (CI): Build artifacts are often used in CI pipelines to produce and store the compiled output of the application.</li>
+                    <li>Continuous Deployment (CD): Release artifacts are used in CD pipelines to deploy applications to various environments.</li>
+                </ul>
+            <p>
+                Now, let's create a pipeline to deploy our application to App Service by Azure DevOps.
+            </p>
+            <br />
+            <img src="{{ STATIC_URL }}images/pipeline.png" alt="Image" style="max-width: 750px;max-height: 600px;" />
+            <br />
+            <br />
+            <p>
+                The process of creating a pipeline is: Copy file -> Archive file -> Publish Artifact. Then, we click on the button "Run" to run the pipeline. Jobs will be executed on the agent.
+            </p>
+
+            <img src="{{ STATIC_URL }}images/jobs.png" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+
+            <p>
+                Once jobs are completed, we can see the result of the pipeline. Come to "Release" section, we define behaviors of release. In this case, we have 2 stages: Deploy to Dev and Deploy to Prod. Each stage has 2 job: Download Artifact and Deploy to App Service.
+            </p>
+
+            <img src="{{ STATIC_URL }}images/release-detail.png" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+
+            <p>
+                To kick off the release, we click on the button "Create release" and select the latest build. We can inspect process of release. In my case, Stage 1 already deployed, Dev is pending to approval deployment and Production will be enabled once Dev completed.
+            </p>
+
+            <img src="{{ STATIC_URL }}images/release.png" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+            <br />
+            <br />
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

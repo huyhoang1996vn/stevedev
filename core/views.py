@@ -12,6 +12,7 @@ def index(request):
         {"image": "management.png", "title": "Debug in API Management Azure", "desc":"How to trace requests in api gateway management.", "url": "apimanagement"},
         {"image": "appservice.png", "title": "Azure App Service Guide", "desc":"Cloud service helps developers so munch in deployment.", "url": "appservice"},
         {"image": "function.png", "title": "Function app serverless on Azure", "desc":"Traditionally, we choose plaftform, set up version language, install libraries..", "url": "function"},
+        {"image": "azure-devops.png", "title": "CI/CD in Azure Devops", "desc":"Building a Continuous Integration Pipeline in Azure DevOps.", "url": "devops"},
         {"image": "aws-lambda.webp", "title": "AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "lambda_function"},
         {"image": "layer2.jpeg", "title": "Install Boto3 in layer AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "boto3"},
         {"image": "minio.jpeg", "title": "Minio Object Storage Service (like Amazon S3)", "desc":"Object storage service is more popular for several reasons.", "url": "minio"},
@@ -83,3 +84,5 @@ def migration(request):
 def concept(request):
     return render(request, 'npm.html', {"title_pager": "Compare packages in javascript", "author": "by Steve Nguyen"})        
 
+def devops(request):
+    return render(request, 'devops.html', {"title_pager": "CI/CD in Azure Devops", "author": "by Steve Nguyen"})        
