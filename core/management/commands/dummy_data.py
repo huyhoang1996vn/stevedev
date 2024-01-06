@@ -171,11 +171,39 @@ class Command(BaseCommand):
             Post(category='Positions', title='', image='https://sexpositions.club/wp-content/uploads/2016/03/8_25_3.png', content=''),
             Post(category='Positions', title='', image='https://sexpositions.club/wp-content/uploads/2016/03/8_17_4.png', content=''),
             Post(category='Positions', title='', image='https://sexpositions.club/wp-content/uploads/2016/03/8_16_4.png', content=''),
+            
+            Post(category='Positions', title='69', image='https://sexualquantumleap.com/wp-content/uploads/2023/05/69-article-1024x490.png', content=''),
+            Post(category='Positions', title='Reverse 69', image='https://sexualquantumleap.com/wp-content/uploads/2023/05/reverse69-1024x860.png', content=''),
+            
+            Post(category='Positions', title='Scissor Sex Position', image='https://www.sexualpositionsfree.com/wp-content/uploads/2018/08/scissor-position.jpg', content=''),
+            Post(category='Positions', title='Scissor Sex Position', image='https://www.sexualpositionsfree.com/wp-content/uploads/2018/08/scissor-position.jpg', content=''),
+            
+            Post(category='Positions', title='Spoons sex position', image='https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Wiki-spoons-sp.png/220px-Wiki-spoons-sp.png', content=''),
+            Post(category='Positions', title='Spoons sex position', image='https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Wiki-spoons-sp.png/220px-Wiki-spoons-sp.png', content=''),
+            
+            Post(category='Positions', title='Prone bone', image='https://ff.axsel-line.ru/phimhot/wp-content/uploads/2016/03/8_20_2.png', content=''),
+            Post(category='Positions', title='Prone bone', image='https://ff.axsel-line.ru/phimhot/wp-content/uploads/2016/03/8_20_2.png', content=''),
+            
+            
+            Post(category='Positions', title='The Spoon', image='https://sexualquantumleap.com/wp-content/uploads/2023/06/42-Bent-Spoon-1024x834.png', content=''),
+            Post(category='Positions', title='Lap Dance', image='https://sexualquantumleap.com/wp-content/uploads/2023/06/43lapdance-768x1024.png', content=''),
+            Post(category='Positions', title='The Emoji', image='https://sexualquantumleap.com/wp-content/uploads/2023/06/44-emoji-1-1024x819.png', content=''),
+            
+            Post(category='Positions', title='The Eagle', image='https://sexualquantumleap.com/wp-content/uploads/2023/06/4-the-eagle-1-1024x748.png', content=''),
+            
+            Post(category='Positions', title='The Oyster', image='https://sexualquantumleap.com/wp-content/uploads/2023/05/6-oyster-1-1024x819.png', content=''),
+            Post(category='Positions', title='', image='https://sexualquantumleap.com/wp-content/uploads/2023/06/ab001628-0d4f-4537-9f4e-8eaef83deb0f-1024x713.png', content=''),
+            Post(category='Positions', title='', image='https://sexualquantumleap.com/wp-content/uploads/2023/06/reverse-cowgirl-finger-768x623-1-300x243.png', content=''),
+            Post(category='Positions', title='', image='https://sexualquantumleap.com/wp-content/uploads/2023/05/8-Broken-Eagle-acrobat-300x162.png', content=''),
+            # Post(category='Positions', title='', image='', content=''),
+            
+            # Post(category='Positions', title='', image='', content=''),
+            
             # Post(category='Positions', title='', image='', content=''),
             
 
 
-
+            # Ref: https://sexualquantumleap.com/learn/positions/
 
             
             # Post(category='Positions', title='', image='', content=''),
