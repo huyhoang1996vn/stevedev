@@ -45,7 +45,7 @@
 
             <p>
                 <strong>What is Artifact?</strong>
-            <p>
+            </p>
             <p>
                 Artifact is the result or output produced by a build pipeline or a release pipeline, and it can include compiled binaries, executables, libraries, configuration files and so on. 
                 <strong>
@@ -55,6 +55,18 @@
                     <li>Continuous Integration (CI): Build artifacts are often used in CI pipelines to produce and store the compiled output of the application.</li>
                     <li>Continuous Deployment (CD): Release artifacts are used in CD pipelines to deploy applications to various environments.</li>
                 </ul>
+            </p>
+            <p>
+                <strong>What is Stage?</strong>
+            </p>
+            <p>
+                A stage is a logical boundary in a pipeline. Each stage can be configured to run sequentially or in parallel. I usually use stage to separate application to different environments such as Dev, Staging, Production. In stage, we can define jobs to execute like build, test, deploy.
+            <p>
+                <strong>What is Release?</strong>
+            </p>
+            <p>
+                A release pipeline is a pipeline that deploys the artifacts to a target environment. In release pipelines, you can configure the <strong>stages</strong> and <strong>tasks</strong> that are required to deploy your application.
+            </p>
             <p>
                 Now, let's create a pipeline to deploy our application to App Service by Azure DevOps.
             </p>
