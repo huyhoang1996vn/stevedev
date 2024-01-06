@@ -143,3 +143,6 @@ https://auth0.com/blog/deploying-django-restful-apis-as-serverless-applications-
 
 ### Custom domain zappa
 https://romandc.com/zappa-django-guide/walk_domain/
+
+
+python manage.py dummy_data
