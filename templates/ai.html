@@ -1,0 +1,87 @@
+{% extends "layout.html" %} {% load i18n %} {% block extrastylesheet%}
+<link href="{{ STATIC_URL }}css/termynal.css?ver=1.1.0" rel="stylesheet" />
+<link href="{{ STATIC_URL }}css/code.css?ver=1.1.1" rel="stylesheet" />
+{% endblock%} {% block extrascript%}
+<script src="{{ STATIC_URL }}js/termynal.js?ver=1.1.0"></script>
+<script src="{{ STATIC_URL }}js/terminal-paypal.js?ver=1.1.0"></script>
+{% endblock%} {% block main_content%}
+
+<div class="section">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="card-body">
+            <p>
+                First of all, you get familiar with some concepts and terms in the artificial intelligence. we hear alot about AI and <strong>machine learning</strong> and <strong>deep learning</strong> and so on. but what are they? This picture shows the difference between them.
+            </p>
+            <img src="{{ STATIC_URL }}images/diff-aiwebp.webp" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+            <br />
+            <br />
+            <p>
+                About detail of each, we can read more on the internet. In this article, we stand on developer's perspective. So, we will work on <strong>machine learning</strong> and deep learning. 
+            </p>
+
+            <p>
+                Follow by IBM: <strong>Machine learning</strong> is a branch of artificial intelligence (AI) and computer science which focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. That's quite simple. Let's move on an example.
+            </p>
+            <p>
+                Some algorithms are usually used in ML: Linear Regression, K-Nearest Neighbors, K-Means, Naive Bayes, Gradient Boosting algorithms, etc.
+                I can break down 3 main types of ML: Supervised Learning, Unsupervised Learning and Reinforcement Learning. Frequently, we use Supervised Learning and Unsupervised Learning. Reinforcement Learning is not popular for me.
+            </p>
+
+            <img src="{{ STATIC_URL }}images/ml.png" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+
+            {% comment %} <p>
+                <ul>
+                    <li><p>Supervised Learning: we have a dataset with labels. For example, we have a dataset of 1000 images of cats and dogs. We know which image is a cat and which image is a dog. We use this dataset to train a model. After training, we can use this model to predict a new image is a cat or dog. Some algorithms: Linear Regression, Logistic Regression, Decision Tree, Random Forest, Support Vector Machine, K-Nearest Neighbors, etc.</p></li>
+                    <li><p>Unsupervised Learning: we have a dataset without labels. For example, we have a dataset of 1000 images of cats and dogs. But we don't know which image is a cat or dog. We use this dataset to train a model. After training, we can use this model to cluster images into 2 groups: cat and dog. Some algorithms: K-Means, Hierarchical Clustering, etc.</p></li>
+
+                </ul>
+            </p> {% endcomment %}
+            {% comment %} <p>
+                Base on the goal, I can separate into 2 types : Classification and Regression. 
+                <ul>
+                    <li>Classification: Model will categorize or classify data points into different classes or categories. Some algorithms: k-Nearest Neighbors (k-NN), Linear Classifier.</li>
+                    <li>Regression: Model will involves predicting a continuous numerical output based on input features. Some algorithms: Linear Regression, Decision Tree, Random Forest, etc.</li>
+                </ul>
+            </p> {% endcomment %}
+            <p>
+                Then, come to <strong>Neural network</strong>, a type of ML algorithm, are typically the foundation of algorithms used in deep learning models. Neural networks are composed of layers. The output is then passed on as input to the next layer of neurons. The output of the final layer is the output of the model.
+            </p>
+            <img src="{{ STATIC_URL }}images/nn.gif" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+            
+            <p>
+                Types of Neural Networks:
+                <ul>
+                    <li><p>Feedforward Neural Networks: They are the simplest type of neural networks, where data moving from the input layer to the output layer without any feedback loops.</p></li>
+                    <li><p>Convolutional Neural Networks (CNN): CNNs are particularly well-suited for image and video analysis, using convolutional layers to automatically detect patterns.</p></li>
+                        <img src="{{ STATIC_URL }}images/cnn.png" alt="Image" style="margin-left: 40px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+
+                    <li><p>Recurrent Neural Networks (RNN): These networks have connections that allow feedback loops, making them suitable for sequential data (Ex: language) and tasks that require memory.</p></li>
+                    <img src="{{ STATIC_URL }}images/rnn.webp" alt="Image" style="margin-left: 40px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+
+                    <li><p>Long Short-Term Memory Networks (LSTMs): A type of RNN that can retain information for an extended period, making them effective in tasks involving sequential data.</p></li>
+                    <img src="{{ STATIC_URL }}images/lsmnn.png" alt="Image" style="margin-left: 40px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+                    <li><p>Generative Adversarial Networks</p></li>
+                </ul>
+                
+            </p>
+            
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p>
+                <strong>Deep learning</strong> is a subfield of machine learning that focuses on the use of neural networks with multiple layers (deep neural networks) to model and solve complex problems.
+                The "deep" in here refers to a neural network with multiple hidden layers. Normally,  "Deep Neural Network" (DNN) and "Neural Network" both imply the same thing.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

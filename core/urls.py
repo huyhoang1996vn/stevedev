@@ -23,4 +23,5 @@ urlpatterns = [
     path('migration-django.html', views.migration, name='migration'),
     path('compare-packages-javascript.html', views.concept, name='concept'),
     path('azure-devops.html', views.devops, name='devops'),
+    path('artificial-Intelligence-foundamental.html', views.ai, name='ai'),
 ]
