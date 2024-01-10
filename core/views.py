@@ -16,7 +16,7 @@ def index(request):
         {"image": "aws-lambda.webp", "title": "AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "lambda_function"},
         {"image": "layer2.jpeg", "title": "Install Boto3 in layer AWS Lambda function", "desc":"Lambda function is the most popular technique every developers all know.", "url": "boto3"},
         {"image": "minio.jpeg", "title": "Minio Object Storage Service (like Amazon S3)", "desc":"Object storage service is more popular for several reasons.", "url": "minio"},
-        {"image": "ai-panel.png", "title": "Artificial Intelligence Foundamental", "desc":"Artificial Intelligence Foundamental for beginners.", "url": "ai"},
+        {"image": "ai-panel.png", "title": "Neural network Foundamental", "desc":"Artificial Intelligence Foundamental for beginners.", "url": "ai"},
         {"image": "migrations.jpeg", "title": "Migrations in django", "desc":"Migrations are Django’s way of applying changes you make to your models.", "url": "migration"},
         {"image": "any.png", "title": "Deploy Django on Pythonanywhere Guide", "desc":"Deployment is required process in software.", "url": "pythonanywhere"},
         {"image": "test.png", "title": "Unit Test And Selenium in python", "desc":"Testing is a necessary part of the development process but not all.", "url": "unit-test"},
@@ -89,4 +89,4 @@ def devops(request):
     return render(request, 'devops.html', {"title_pager": "CI/CD in Azure Devops", "author": "by Steve Nguyen"})        
 
 def ai(request):
-    return render(request, 'ai.html', {"title_pager": "Artificial Intelligence foundamental", "author": "by Steve Nguyen"})        
+    return render(request, 'ai.html', {"title_pager": "Neural Network Foundamental", "author": "by Steve Nguyen"})        

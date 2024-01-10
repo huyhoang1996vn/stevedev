@@ -49,6 +49,9 @@
             <p>
                 Then, come to <strong>Neural network</strong>, a type of ML algorithm, are typically the foundation of algorithms used in deep learning models. Neural networks are composed of layers. The output is then passed on as input to the next layer of neurons. The output of the final layer is the output of the model.
             </p>
+            <h4>
+                How neural network work? 
+            </h4>
             <img src="{{ STATIC_URL }}images/nn.gif" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
             <p>
                 As image, each of nodes is <strong>Neurons</strong> (Nodes). Each neuron receives input, performs a computation, and produces an output
@@ -59,14 +62,26 @@
                     <li><p>Output Layer: The final layer that produces the network's output.</p></li>
                 </ul>
             </p>
+
+            <h4>
+                How each of neurons work? 
+            </h4>
             <p>
-                At the output, the <strong>activation function</strong> is applied to the output of each neuron in a neural network. It transforms the summed weighted input from the node into an output value to be fed to the next hidden layer or as output. Many types of activation functions like: Sigmoid, ReLU, etc
+                <strong>Activation function</strong> is applied to the output of each neuron in a neural network. It transforms the summed weighted input from the node into an output value to be fed to the next hidden layer or as output. Many types of activation functions like: Sigmoid, ReLU, etc
             </p>
 
             <img src="{{ STATIC_URL }}images/af.png" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
             <p>Each input to the neuron is multiplied by a weight, and these weighted inputs are summed and plus Bias. The result then passed through an activation function to get output.</p>
-
+            <h4>
+                How neural network learn? 
+            </h4>
+            <p>
+                <strong>Backpropagation</strong> is supervised learning algorithm used to training. It helps neural network update the weights and bias to reduce the error and improve the ability to make accurate predictions.
+            </p>
+            <p><strong>Epochs</strong> define how many time training data</p>
             
+            <img src="{{ STATIC_URL }}images/back.png" alt="Image" style="margin-top: 20px; margin-bottom: 20px; max-width: 750px;max-height: 600px;" />
+
             <p>
                 Types of Neural Networks:
                 <ul>
