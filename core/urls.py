@@ -24,4 +24,6 @@ urlpatterns = [
     path('compare-packages-javascript.html', views.concept, name='concept'),
     path('azure-devops.html', views.devops, name='devops'),
     path('neural-network-foundamental.html', views.ai, name='ai'),
+    path('sql-collations.html', views.collations, name='collation'),
+
 ]

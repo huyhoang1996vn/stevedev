@@ -25,7 +25,8 @@ def index(request):
         {"image": "cronjob.png", "title": "Cronjob, Celery and Scheduled tasks in python", "desc":"Cronjob is a solution I got exposed to at first.", "url": "task"},
         {"image": "oath2.png", "title": "OAuth And OAuth2 Workflow", "desc":"OAuth (Open Authorization) is an open standard for authentication and authorization.", "url": "oauth"},
         {"image": "paypal.png", "title": "PayPal Payment Integration Guide In Service API", "desc":"They are webhook paypal and api payment paypal.", "url": "paypal"},
-        {"image": "in-app.jpeg", "title": "In-App Payment Guide In Service API", "desc":"In-App payment is available and supported by Apple and Google.", "url": "in_app"}
+        {"image": "in-app.jpeg", "title": "In-App Payment Guide In Service API", "desc":"In-App payment is available and supported by Apple and Google.", "url": "in_app"},
+        {"image": "collation.png", "title": "Collation in SQL", "desc":"Rule for store and query data in sql.", "url": "collation"}
     ]
     return render(request, 'index.html', {"blogs": blogs})
 
@@ -90,3 +91,7 @@ def devops(request):
 
 def ai(request):
     return render(request, 'ai.html', {"title_pager": "Neural Network Foundamental", "author": "by Steve Nguyen"})        
+
+def collations(request):
+    return render(request, 'collations.html', {"title_pager": "SQL Collation", "author": "by Steve Nguyen"})        
+
